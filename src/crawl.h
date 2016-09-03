@@ -2,9 +2,8 @@
 #define INCLUDED_Crawl_h
 #include <Arduino.h>
 
-class CrlRobot{
-public:
-
+class CrlRobot {
+ public:
   void init();
   void realtimeLoop();
   void set_dt(float dt);
@@ -21,8 +20,7 @@ public:
   void set_motor_r(float motor_r);
   void updateState();
 
-private:
-  
+ private:
   float dt;
   int dt_us;
   float theta;
@@ -40,13 +38,11 @@ private:
   void calcState();
   void initGyroOffset();
   void initTheta();
-  
 };
 
 extern CrlRobot crl;
 
 #endif
-
 
 //////////////////////////
 //  Crawl Library V1.0  //
@@ -59,6 +55,6 @@ extern CrlRobot crl;
 //  COO : YU KABASAWA   //
 //  PIC : RUI TAMURA    //
 //                      //
-//Thank all cooperators //
+// Thank all cooperators //
 //  We start from here. //
 //////////////////////////

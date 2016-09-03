@@ -1,0 +1,10 @@
+box: omniment/arm-mbed
+build:
+  steps:
+    - script:
+      name: Check code format
+      code: ./tools/check_format.sh
+  after-steps:
+    - wantedly/pretty-slack-notify:
+        webhook_url: $SLACK_URL
+        channel: notice
