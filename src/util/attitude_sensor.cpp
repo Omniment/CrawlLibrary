@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include<Wire.h>
+#include <Wire.h>
 #include "attitude_sensor.h"
 
 
@@ -17,7 +17,7 @@ void initAttitudeSensor() {
     Serial.println("Success");
   } else {
     Serial.println("Failed");
-    while (1);
+    while (1) continue;
   }
   
   Wire.beginTransmission(0x68);
@@ -40,6 +40,8 @@ void initAttitudeSensor() {
   }
 }
 
+
+
 void getAttitude() {
   int calc_temp;
   byte calc_temp_b;
@@ -53,7 +55,7 @@ void getAttitude() {
     calc_temp = Wire.read();
     calc_temp = calc_temp << 8;
     calc_temp |= Wire.read();
-     attitude_data[i] = calc_temp;
+    attitude_data[i] = calc_temp;
   }
 
   Wire.beginTransmission(0x0C);
@@ -66,7 +68,7 @@ void getAttitude() {
     calc_temp = Wire.read();
     calc_temp = calc_temp << 8;
     calc_temp |= calc_temp_b;
-     attitude_data[i] = calc_temp;
+    attitude_data[i] = calc_temp;
   }
   
   Wire.read();

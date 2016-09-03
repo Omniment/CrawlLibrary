@@ -17,6 +17,8 @@ public:
   float get_theta_dot_z();
   float get_encoder_l();
   float get_encoder_r();
+  void set_encoder_l(float x);
+  void set_encoder_r(float x);
   void set_motor_l(float motor_l);
   void set_motor_r(float motor_r);
   void updateState();
@@ -47,18 +49,3 @@ extern CrlRobot crl;
 
 #endif
 
-
-//////////////////////////
-//  Crawl Library V1.0  //
-//      2016/07/19      //
-//  Copyright © 2016    //
-//      Omniment Inc.   //
-//  All Rights Reserved //
-//                      //
-//      CDD : T.T       //
-//  COO : YU KABASAWA   //
-//  PIC : RUI TAMURA    //
-//                      //
-//Thank all cooperators //
-//  We start from here. //
-//////////////////////////

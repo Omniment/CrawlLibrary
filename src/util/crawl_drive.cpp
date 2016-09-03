@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include<Wire.h>
+#include <Wire.h>
 #include "crawl_drive.h"
 
 void initMotor() {
@@ -60,10 +60,10 @@ void setMoterPower(int left_power,int right_power){
   //   ５ビット目が1なら左モータ逆回転（後退）
   //   例
   //      0x01
-  //     　左モータ前進，右モータ後退
+  //       左モータ前進，右モータ後退
   //
   //      0x10
-  //     　左モータ後退，右モータ前進
+  //       左モータ後退，右モータ前進
   Wire.write(motor_directions); // 回転方向指示
   
   // left_pwm， right_pwm
