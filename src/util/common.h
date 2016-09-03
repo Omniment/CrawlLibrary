@@ -7,7 +7,7 @@
 // モーター指令
 #include "crawl_drive.h"
 // クロールロボット
-#include "Crawl.h"
+#include "crawl.h"
 // エンコーダ読み取り
 #include "encoder.h"
 
