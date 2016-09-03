@@ -3,7 +3,7 @@
 
 //
 // motor.h
-// 
+//
 // 概要
 //
 // ロボットに搭載された左右のモータを制御ための関数群である．
@@ -30,13 +30,13 @@
 //    255ではモータは最大パワーで正回転（前進）する．
 //
 //  備考
-//  
+//
 //     引数の値が-255より小さく，255より大きく指定された場合，
 //     それぞれ-255と255に設定される
 //
 
 void initMotor();
-void stopMotor() ;
-void setMoterPower(int left_power,int right_power);
+void stopMotor();
+void setMoterPower(int left_power, int right_power);
 
 #endif
