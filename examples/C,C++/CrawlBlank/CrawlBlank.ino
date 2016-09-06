@@ -12,7 +12,5 @@ int main() {
   crl.init();
 
   while (1) {
-
   }
 }
-

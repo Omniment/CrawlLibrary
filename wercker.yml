@@ -10,7 +10,7 @@ build:
     - script:
       name: Check code format
       code: |
-        find src -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
+        find . -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
         | sort \
         | xargs omniment-check-format
     - script:

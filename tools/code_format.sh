@@ -5,7 +5,7 @@ set -eu
 # Move the current directory to the top of git directory
 cd $(git rev-parse --show-toplevel)
 
-src_files=$(find src \
+src_files=$(find . \
                  -type f -regextype posix-egrep \
                  -regex '.*\.([hc](pp)?|cc|ino)$' | sort)
 
