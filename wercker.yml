@@ -1,9 +1,27 @@
-box: omniment/arm-mbed
+box: omniment/arduino
 build:
   steps:
     - script:
+      name: Check filenames (snake case)
+      code: |
+        find src -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
+        | sort \
+        | xargs omniment-check-path
+    - script:
       name: Check code format
-      code: ./tools/check_format.sh
+      code: |
+        find . -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
+        | sort \
+        | xargs omniment-check-format
+    - script:
+      name: Build examples
+      code: |
+        mkdir -p $HOME/Arduino/libraries; \
+        ln -s $(pwd) $HOME/Arduino/libraries/CrawlLibrary; \
+        for ino in $(find examples -type f -name '*.ino'); do \
+          echo -e "\033[32mCompiling $ino...\033[0m"; \
+          arduino-headless -v --verify "$ino" || exit 127; \
+        done
   after-steps:
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_URL
