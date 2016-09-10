@@ -1,5 +1,12 @@
 #include <Arduino.h>
-#include "common.h"
+// 姿勢センサ
+#include "attitude_sensor.h"
+// モーター指令
+#include "crawl_drive.h"
+// クロールロボット
+#include "crawl.h"
+// エンコーダ読み取り
+#include "encoder.h"
 // Declared weak in Arduino.h to allow user redefinitions.
 int atexit(void (* /*func*/)()) { return 0; }
 
@@ -139,7 +146,15 @@ void CrlRobot::set_motor_l(float motor_l) { this->motor_l = motor_l; }
 
 void CrlRobot::set_motor_r(float motor_r) { this->motor_r = motor_r; }
 
-float CrlRobot::get_theta() { return this->theta; }
+void CrlRobot::set_encoder_l(float encoder_l) { this->encoder_l = encoder_l; }
+
+void CrlRobot::set_encoder_r(float encoder_r) { this->encoder_r = encoder_r; }
+
+float CrlRobot::get_theta_x() { return this->theta; }
+
+float CrlRobot::get_theta_y() { return this->theta; }
+
+float CrlRobot::get_theta_z() { return this->theta; }
 
 float CrlRobot::get_acc_x() { return this->acc_x; }
 
