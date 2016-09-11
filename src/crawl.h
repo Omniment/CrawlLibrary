@@ -1,3 +1,7 @@
+/**
+@file crawl.h
+*/
+
 #ifndef INCLUDED_Crawl_h
 #define INCLUDED_Crawl_h
 #include <Arduino.h>
@@ -7,7 +11,9 @@ class CrlRobot {
   void init();
   void realtimeLoop();
   void set_dt(float dt);
-  float get_theta();
+  float get_theta_x();
+  float get_theta_y();
+  float get_theta_z();
   float get_acc_x();
   float get_acc_y();
   float get_acc_z();
@@ -18,9 +24,10 @@ class CrlRobot {
   float get_encoder_r();
   void set_motor_l(float motor_l);
   void set_motor_r(float motor_r);
+  void set_encoder_l(float encoder_l);
+  void set_encoder_r(float encoder_r);
   void updateState();
 
- private:
   float dt;
   int dt_us;
   float theta;
@@ -43,18 +50,3 @@ class CrlRobot {
 extern CrlRobot crl;
 
 #endif
-
-//////////////////////////
-//  Crawl Library V1.0  //
-//      2016/07/19      //
-//  Copyright © 2016    //
-//      Omniment Inc.   //
-//  All Rights Reserved //
-//                      //
-//      CDD : T.T       //
-//  COO : YU KABASAWA   //
-//  PIC : RUI TAMURA    //
-//                      //
-// Thank all cooperators //
-//  We start from here. //
-//////////////////////////

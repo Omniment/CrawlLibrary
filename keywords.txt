@@ -2,7 +2,9 @@ Crawl	KEYWORD1
 crl	KEYWORD1
 init	KEYWORD2
 set_dt	KEYWORD2
-get_theta	KEYWORD2
+get_theta_x	KEYWORD2
+get_theta_y	KEYWORD2
+get_theta_z	KEYWORD2
 get_acc_x	KEYWORD2
 get_acc_y	KEYWORD2
 get_acc_z	KEYWORD2
@@ -11,7 +13,10 @@ get_theta_dot_y	KEYWORD2
 get_theta_dot_z	KEYWORD2
 get_encoder_l	KEYWORD2
 get_encoder_r	KEYWORD2
+set_encoder_l	KEYWORD2
+set_encoder_r	KEYWORD2
 set_motor_l	KEYWORD2
 set_motor_r	KEYWORD2
 realtimeLoop	KEYWORD2
 updateState	KEYWORD2
+
