@@ -28,10 +28,7 @@ class CrlRobot {
   void set_encoder_r(float encoder_r);
   void updateState();
 
-#ifdef DEBUG
- private:
-#endif
-  
+
   float dt;
   int dt_us;
   float theta;
