@@ -1,0 +1,7 @@
+box: wercker/default
+
+build:
+  steps:
+    - script:
+      name: Dummy step
+      code: echo Nothing to do
