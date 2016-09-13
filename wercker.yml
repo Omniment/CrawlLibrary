@@ -1,4 +1,5 @@
 box: omniment/arduino
+
 build:
   steps:
     - script:
@@ -22,6 +23,16 @@ build:
           echo -e "\033[32mCompiling $ino...\033[0m"; \
           arduino-headless -v --verify "$ino" || exit 127; \
         done
+  after-steps:
+    - wantedly/pretty-slack-notify:
+        webhook_url: $SLACK_URL
+        channel: notice
+
+deploy:
+  steps:
+    - script:
+      name: Build documentation
+      code: ./doc/build.wercker.sh $GITHUB_REPO
   after-steps:
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_URL
