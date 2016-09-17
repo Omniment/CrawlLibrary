@@ -182,6 +182,7 @@ class CrlRobot {
    */
   void updateState();
 
+  /// @cond develop
   /** ループ間隔 単位:秒 */
   float dt;
   /** ループ間隔 単位:マイクロ秒 */
@@ -275,6 +276,7 @@ class CrlRobot {
    * @return なし
    * @sa init()
    */
+   /// @endcond
 };
 
 /** CrlRobotのインスタンス */
