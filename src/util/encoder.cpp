@@ -1,3 +1,14 @@
+/**
+ * @file encoder.cpp
+ * @brief
+ *  モータ軸に取り付けられたエンコーダにより，
+ * モータ軸の累計回転数を取得するライブラリ．
+ *
+ * エンコーダはモータ制御基板に設置されている．
+ * メイン基板とモータ制御基板は分離しており，シリアル通信（Ｉ２Ｃ）によりコマンドの送受信を行う．
+ * モータ制御基板のＩ２Ｃアドレスは0x0fに設定されている．
+ */
+
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -32,7 +43,7 @@ void getEncoder() {
 
   left_encoder = Wire.read() << 8;
   left_encoder |= Wire.read();
-  Serial.println(left_encoder);
+  // Serial.println(left_encoder);
 }
 
 void resetEncoder() {
