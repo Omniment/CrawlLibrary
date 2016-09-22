@@ -2,12 +2,18 @@
  * @file crawl.h
  * @brief
  * クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ.
+ * 制御に必要とされる一次遅れフィルターや不完全微分
  */
 
 #ifndef INCLUDED_Crawl_h
 #define INCLUDED_Crawl_h
 #include <Arduino.h>
 
+/**
+ * @class CrlRobot
+ * @brief
+ * クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.
+ */
 class CrlRobot {
  public:
   /**
@@ -292,6 +298,93 @@ class CrlRobot {
    * @sa init()
    */
   /// @endcond
+};
+
+/**
+ * @class FirtstOrderFilter
+ * @brief
+ * 一次遅れフィルタークラス.
+ */
+class FirtstOrderFilter {
+  /// @cond develop
+ protected:
+  float dt;
+  float T;
+  float x;
+  float y;
+  /// @endcond
+ public:
+  /**
+   * @brief コンストラクタ
+   *
+   * 一時遅れフィルタのコンストラクタ.出力初期値は0,時定数は1秒,サンプリングタイムは1ミリ秒で初期化されます.
+   * @return なし
+   */
+  FirtstOrderFilter();
+  /**
+   * @brief サンプリングタイムを設定する
+   *
+   * @param dt ループ間隔 単位:秒
+   * @return なし
+   */
+  void setDt(float dt);
+  /**
+   * @brief 時定数を設定する
+   *
+   * @param T 時定数 単位:秒
+   * @return なし
+   */
+  void setT(float T);
+  /**
+   * @brief 入力値を設定する
+   *
+   * フィルタに通す値を設定します.
+   * @param x
+   * @return なし
+   */
+  void in(float x);
+  /**
+   * @brief 出力値を取得する
+   *
+   * フィルタを通した値を取得します.
+   * @return フィルタを通した値
+   */
+  float out();
+  /**
+   * @brief 入力から出力を計算する
+   *
+   * ルンゲクッタ法により4次の精度で一時遅れフィルターを計算します.
+   * @return なし
+   */
+  float calc();
+};
+
+/**
+ * @class LaggedDerivative
+ * @brief
+ * 不完全微分クラス.
+ *
+ * 一次遅れフィルタークラスを継承
+ */
+class LaggedDerivative : public FirtstOrderFilter {
+  /// @cond develop
+  float y;
+  /// @endcond
+ public:
+  /**
+   * @brief 入力から出力を計算する
+   *
+   * ルンゲクッタ法により4次の精度で不完全微分を計算します.
+   * @return なし
+   */
+  float calc();
+  /**
+   * @brief 不完全微分した値を取得する
+   *
+   * 不完全微分した値を取得します.
+   * @return 不完全微分した値
+   */
+  float out();
 };
 
 /** CrlRobotのインスタンス */

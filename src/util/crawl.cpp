@@ -185,3 +185,34 @@ float CrlRobot::getOdometryLeft() { return this->encoder_left * this->kEtoMM; }
 float CrlRobot::getOdometryRight() {
   return this->encoder_right * this->kEtoMM;
 }
+
+FirtstOrderFilter::FirtstOrderFilter() : y(0), T(1), dt(0.001) {}
+
+void FirtstOrderFilter::setDt(float dt) { this->dt = dt; }
+
+void FirtstOrderFilter::setT(float T) {
+  if (0.0 < T) {
+    this->T = T;
+  } else {
+    this->T = 1.0;
+  }
+}
+
+float FirtstOrderFilter::calc() {
+  float k, k0, k1, k2, k3;
+  k0 = (x - y) / T;
+  k1 = (x - (y + k0 * dt * 0.5)) / T;
+  k2 = (x - (y + k1 * dt * 0.5)) / T;
+  k3 = (x - (y + k1 * dt)) / T;
+  k = (k0 + 2 * k1 + 2 * k2 + k3) / 6;
+  y = y + k * dt;
+}
+void FirtstOrderFilter::in(float x) { this->x = x; }
+float FirtstOrderFilter::out() { return y; }
+
+float LaggedDerivative::calc() {
+  in(x);
+  FirtstOrderFilter::calc();
+  this->y = (x - FirtstOrderFilter::out()) / FirtstOrderFilter::T;
+}
+float LaggedDerivative::out() { return this->y; }
