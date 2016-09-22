@@ -1,3 +1,10 @@
+/**
+ * @file attitude_sensor.cpp
+ * @brief
+ * 9軸姿勢センサ（MPU-9250）により姿勢情報を得る
+ *
+ * センサＩＣとマイコンはシリアル通信（I2C）によりコマンドの送受信をする．
+ */
 #include <Arduino.h>
 #include <Wire.h>
 #include "attitude_sensor.h"

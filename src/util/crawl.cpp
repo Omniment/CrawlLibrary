@@ -1,3 +1,9 @@
+/**
+ * @file crawl.cpp
+ * @brief
+ * クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ.
+ */
+
 #include <Arduino.h>
 // 姿勢センサ
 #include "attitude_sensor.h"
