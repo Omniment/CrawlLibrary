@@ -34,7 +34,7 @@ class CrlRobot {
    * @return なし
    * @warning
    *ループ内の処理がdt秒を超える場合にはこのメンバ関数は正しく動作せず,直ちにリターンします.
-   * @sa set_dt(float dt)
+   * @sa setDt(float dt)
    */
   void realtimeLoop();
   /**
@@ -49,131 +49,147 @@ class CrlRobot {
    * realtimeLoop()が呼ばれた場合には,即時リターンされます.
    * @sa realtimeLoop()
    */
-  void set_dt(float dt);
+  void setDt(float dt);
   /**
    * @brief X軸周りの姿勢角度を取得する
    * @return X軸周りの姿勢角度 単位:rad [-pi/2, +3pi/2]
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_theta_x();
+  float getThetaX();
   /**
    * @brief Y軸周りの姿勢角度を取得する
    * @return Y軸周りの姿勢角度 単位:rad [?,?]
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_theta_y();
+  float getThetaY();
   /**
    * @brief Z軸周りの姿勢角度を取得する
    * @return Z軸周りの姿勢角度 単位:rad [?,?]
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState(),updateState()
    */
-  float get_theta_z();
+  float getThetaZ();
   /**
    * @brief X軸方向の加速度を取得する
    * @return X軸方向の加速度 単位:m/s^2
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_acc_x();
+  float getAccX();
   /**
    * @brief Y軸方向の加速度を取得する
    * @return Y軸方向の加速度 単位:m/s^2
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_acc_y();
+  float getAccY();
   /**
    * @brief Z軸方向の加速度を取得する
    * @return Z軸方向の加速度 単位:m/s^2
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_acc_z();
+  float getAccZ();
   /**
    * @brief X軸周りの角速度を取得する
    * @return X軸周りの角速度 単位:rad/srealtimeLoop()
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_theta_dot_x();
+  float getThetaDotX();
   /**
    * @brief Y軸周りの角速度を取得する
    * @return Y軸周りの角速度 単位:rad/s
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_theta_dot_y();
+  float getThetaDotY();
   /**
    * @brief Z軸周りの角速度を取得する
    * @return Z軸周りの角速度 単位:rad/s
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_theta_dot_z();
+  float getThetaDotZ();
   /**
    * @brief 左エンコーダの値を取得する
    *
    *左クローラの進んだ距離の累積値を取得します.
-   * @return 左エンコーダの値 単位:mm
+   * @return 左エンコーダの値 単位:パルス
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_encoder_l();
+  float getEncoderLeft();
   /**
    * @brief 右エンコーダの値を取得する
    *
    *右クローラの進んだ距離の累積値を取得します.
-   * @return 右エンコーダの値 単位:mm
+   * @return 右エンコーダの値 単位:パルス
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  float get_encoder_r();
+  float getEncoderRight();
+  /**
+   * @brief 左クローラの進んだ距離の値を取得する
+   *
+   *左クローラの進んだ距離の累積値をメートル単位で取得します.
+   * @return 左エンコーダの値 単位:m
+   * @attention updateState()を呼び出さない限り,情報は更新されません
+   * @sa updateState()
+   */
+  float getOdometryLeft();
+  /**
+   * @brief 右クローラの進んだ距離を取得する
+   *
+   *右クローラの進んだ距離の累積値をメートル単位で取得します.
+   * @return 右エンコーダの値 単位:m
+   * @attention updateState()を呼び出さない限り,情報は更新されません
+   * @sa updateState()
+   */
+  float getOdometryRight();
   /**
    * @brief 左モーターの出力を設定
    *
    * 左モーターの出力を-1.0〜0.0〜1.0でリニアに設定します.
-   * @param motor_l 左モータの出力
+   * @param motor_left 左モータの出力
    * -1.0:最大出力で後退〜0.0:停止〜1.0:最大出力で前進
    * @return なし
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  void set_motor_l(float motor_l);
+  void setMotorLeft(float motor_left);
   /**
    * @brief 右モーターの出力を設定
    *
    * 右モーターの出力を-1.0〜0.0〜1.0でリニアに設定します.
-   * @param motor_l 右モータの出力
+   * @param motor_right 右モータの出力
    * -1.0:最大出力で後退〜0.0:停止〜1.0:最大出力で前進
    * @return なし
    * @attention updateState()を呼び出さない限り,情報は更新されません
    * @sa updateState()
    */
-  void set_motor_r(float motor_r);
+  void setMotorRight(float motor_right);
   /**
-   * @brief 左エンコーダの累積値を設定
+   * @brief 左エンコーダの累積値を0に設定する
    *
    * 左エンコーダの累積値などのリセットなどに利用ください.
-   * @param encoder_l 左エンコーダの累積値
    * @return なし
    */
-  void set_encoder_l(float encoder_l);
+  void resetEncoderLeft();
   /**
-   * @brief 右エンコーダの累積値を設定
+   * @brief 右エンコーダの累積値を0に設定する
    *
    * 右エンコーダの累積値などのリセットなどに利用ください.
-   * @param encoder_l 右エンコーダの累積値
    * @return なし
    */
-  void set_encoder_r(float encoder_r);
+  void resetEncoderRight();
   /**
    * @brief クロールの状態を更新
    *
-   * このメンバ関数では,set_motor_l(),set_motor_r()などで設定したモータ出力を実際の出力に適用します.
-   * また,get_encoder_l()など各種状態･センサ取得関数で得られる情報の更新も行われます.
+   * このメンバ関数では,setMotorLeft(),setMotorRight()などで設定したモータ出力を実際の出力に適用します.
+   * また,getEncoderLeft()など各種状態･センサ取得関数で得られる情報の更新も行われます.
    * @return なし
    * @attention
    *このメンバ関数が呼ばれない限り,モータ出力や,センサの値は更新されません.
@@ -208,18 +224,17 @@ class CrlRobot {
   /** Z軸方向の加速度のセンサの真値との偏差 単位:m/s^2 */
   float offset_gz;
   /** 左モータの出力設定値 */
-  float motor_l;
+  float motor_left;
   /** 右モータの出力設定値 */
-  float motor_r;
+  float motor_right;
   /** 左エンコーダ累積値 */
-  float encoder_l;
+  float encoder_left;
   /** 右エンコーダ累積値 */
-  float encoder_r;
+  float encoder_right;
   /** リアルタイムを実現するための時間計測用変数 */
   unsigned long t1;
   /** リアルタイムを実現するための時間計測用変数 */
   unsigned long t2;
-  ;
   /** リアルタイムを実現するための時間計測用変数 */
   unsigned long tt;
   /** エンコーダパルス数を移動距離に変換するための係数 */
