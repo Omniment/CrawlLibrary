@@ -198,7 +198,7 @@ void FirtstOrderFilter::setT(float T) {
   }
 }
 
-float FirtstOrderFilter::calc() {
+float FirtstOrderFilter::calculate(float x) {
   float k, k0, k1, k2, k3;
   k0 = (x - y) / T;
   k1 = (x - (y + k0 * dt * 0.5)) / T;
@@ -207,12 +207,10 @@ float FirtstOrderFilter::calc() {
   k = (k0 + 2 * k1 + 2 * k2 + k3) / 6;
   y = y + k * dt;
 }
-void FirtstOrderFilter::in(float x) { this->x = x; }
-float FirtstOrderFilter::out() { return y; }
+float FirtstOrderFilter::getOutput() { return y; }
 
-float LaggedDerivative::calc() {
-  in(x);
-  FirtstOrderFilter::calc();
-  this->y = (x - FirtstOrderFilter::out()) / FirtstOrderFilter::T;
+float LaggedDerivative::calculate(float x) {
+  FirtstOrderFilter::calculate(x);
+  this->y = (x - FirtstOrderFilter::getOutput()) / FirtstOrderFilter::T;
 }
-float LaggedDerivative::out() { return this->y; }
+float LaggedDerivative::getOutput() { return this->y; }

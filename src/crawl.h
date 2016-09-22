@@ -310,7 +310,6 @@ class FirtstOrderFilter {
  protected:
   float dt;
   float T;
-  float x;
   float y;
   /// @endcond
  public:
@@ -335,28 +334,23 @@ class FirtstOrderFilter {
    * @return なし
    */
   void setT(float T);
-  /**
-   * @brief 入力値を設定する
-   *
-   * フィルタに通す値を設定します.
-   * @param x
-   * @return なし
-   */
-  void in(float x);
+
   /**
    * @brief 出力値を取得する
    *
    * フィルタを通した値を取得します.
    * @return フィルタを通した値
    */
-  float out();
+  float getOutput();
   /**
    * @brief 入力から出力を計算する
    *
    * ルンゲクッタ法により4次の精度で一時遅れフィルターを計算します.
+   * @param x 入力値
    * @return なし
+   * @attention ループ中では一回だけ呼び出すようにしてください.
    */
-  float calc();
+  float calculate(float x);
 };
 
 /**
@@ -375,16 +369,18 @@ class LaggedDerivative : public FirtstOrderFilter {
    * @brief 入力から出力を計算する
    *
    * ルンゲクッタ法により4次の精度で不完全微分を計算します.
+   * @param x 入力値
    * @return なし
+   * @attention ループ中では一回だけ呼び出すようにしてください.
    */
-  float calc();
+  float calculate(float x);
   /**
    * @brief 不完全微分した値を取得する
    *
    * 不完全微分した値を取得します.
    * @return 不完全微分した値
    */
-  float out();
+  float getOutput();
 };
 
 /** CrlRobotのインスタンス */
