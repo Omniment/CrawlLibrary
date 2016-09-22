@@ -54,11 +54,11 @@ void CrlRobot::init() {
   t2 = micros();
   t1 = t2;
 
-  kEtoMM = 1.95 / 7.0;
+  kEtoMM = 1.95 / 7000.0;
   rate_theta = 0.99;
 
-  this->encoder_l = 0;
-  this->encoder_r = 0;
+  this->encoder_left = 0;
+  this->encoder_right = 0;
 
   initGyroOffset();
   initTheta();
@@ -106,7 +106,7 @@ void CrlRobot::makeTiming() {
 void CrlRobot::updateState() {
   getAttitude();
   getResetEncoder();
-  setMoterPower(this->motor_l * 255, this->motor_r * 255);
+  setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
   calcTheta();
 }
@@ -114,8 +114,8 @@ void CrlRobot::updateState() {
 void CrlRobot::calcState() {
   float ax, ay, az, gx, gy, gz;
 
-  this->encoder_l += left_encoder * this->kEtoMM;
-  this->encoder_r += right_encoder * this->kEtoMM;
+  this->encoder_left += left_encoder;
+  this->encoder_right += right_encoder;
 
   ax = attitude_data[0];
   ay = attitude_data[1];
@@ -143,37 +143,45 @@ void CrlRobot::calcTheta() {
 }
 
 // 各種アクセサ
-void CrlRobot::set_dt(float _dt) {
+void CrlRobot::setDt(float _dt) {
   this->dt = _dt;
   this->dt_us = _dt * 1000000;
 }
 
-void CrlRobot::set_motor_l(float motor_l) { this->motor_l = motor_l; }
+void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 
-void CrlRobot::set_motor_r(float motor_r) { this->motor_r = motor_r; }
+void CrlRobot::setMotorRight(float motor_right) {
+  this->motor_right = motor_right;
+}
 
-void CrlRobot::set_encoder_l(float encoder_l) { this->encoder_l = encoder_l; }
+void CrlRobot::resetEncoderLeft() { this->encoder_left = 0; }
 
-void CrlRobot::set_encoder_r(float encoder_r) { this->encoder_r = encoder_r; }
+void CrlRobot::resetEncoderRight() { this->encoder_right = 0; }
 
-float CrlRobot::get_theta_x() { return this->theta; }
+float CrlRobot::getThetaX() { return this->theta; }
 
-float CrlRobot::get_theta_y() { return this->theta; }
+float CrlRobot::getThetaY() { return this->theta; }
 
-float CrlRobot::get_theta_z() { return this->theta; }
+float CrlRobot::getThetaZ() { return this->theta; }
 
-float CrlRobot::get_acc_x() { return this->acc_x; }
+float CrlRobot::getAccX() { return this->acc_x; }
 
-float CrlRobot::get_acc_y() { return this->acc_y; }
+float CrlRobot::getAccY() { return this->acc_y; }
 
-float CrlRobot::get_acc_z() { return this->acc_z; }
+float CrlRobot::getAccZ() { return this->acc_z; }
 
-float CrlRobot::get_theta_dot_x() { return this->theta_dot_x; }
+float CrlRobot::getThetaDotX() { return this->theta_dot_x; }
 
-float CrlRobot::get_theta_dot_y() { return this->theta_dot_y; }
+float CrlRobot::getThetaDotY() { return this->theta_dot_y; }
 
-float CrlRobot::get_theta_dot_z() { return this->theta_dot_z; }
+float CrlRobot::getThetaDotZ() { return this->theta_dot_z; }
 
-float CrlRobot::get_encoder_l() { return this->encoder_l; }
+float CrlRobot::getEncoderLeft() { return this->encoder_left; }
 
-float CrlRobot::get_encoder_r() { return this->encoder_r; }
+float CrlRobot::getEncoderRight() { return this->encoder_right; }
+
+float CrlRobot::getOdometryLeft() { return this->encoder_left * this->kEtoMM; }
+
+float CrlRobot::getOdometryRight() {
+  return this->encoder_right * this->kEtoMM;
+}
