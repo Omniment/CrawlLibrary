@@ -13,8 +13,10 @@
 #include "crawl.h"
 // エンコーダ読み取り
 #include "encoder.h"
+// センサヒュージョン
+#include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
-int atexit(void (* /*func*/)()) { return 0; }
+int atexit(void (*/*func*/)()) { return 0; }
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -31,7 +33,7 @@ void setupUSB() {}
 #include <math.h>
 
 CrlRobot crl;
-
+KalmanFilter kf;
 void CrlRobot::init() {
   ::init();
   ::initVariant();
@@ -109,6 +111,7 @@ void CrlRobot::updateState() {
   setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
   calcTheta();
+  calcThetaKalmanFilter();
 }
 
 void CrlRobot::calcState() {
@@ -141,6 +144,14 @@ void CrlRobot::calcTheta() {
       this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
   this->theta = this->theta + this->theta_dot_z * this->dt;
 }
+void CrlRobot::calcThetaKalmanFilter() {
+  float theta, gyro;
+  theta = M_PI / 2 - atan2(acc_y, acc_x);
+  gyro = this->theta_dot_z;
+  kf.update(theta, gyro);
+  this->theta_kalman=kf.getTheta();
+
+}
 
 // 各種アクセサ
 void CrlRobot::setDt(float _dt) {
@@ -163,6 +174,8 @@ float CrlRobot::getThetaX() { return this->theta; }
 float CrlRobot::getThetaY() { return this->theta; }
 
 float CrlRobot::getThetaZ() { return this->theta; }
+
+float CrlRobot::getThetaKalman() { return this->theta_kalman; }
 
 float CrlRobot::getAccX() { return this->acc_x; }
 
