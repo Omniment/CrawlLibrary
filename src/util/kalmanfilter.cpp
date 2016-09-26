@@ -2,9 +2,9 @@
 
 KalmanFilter::KalmanFilter()
 {
-    this->dt = 0.001;
+    this->dt = 0.01;
     this->posteriori_state[0] = 0;
-    this->posteriori_state[1] = 0.01;
+    this->posteriori_state[1] = 0.;
     this->posteriori_state[2] = 0;
 
     this->F[0][0] = 1;
@@ -43,12 +43,12 @@ KalmanFilter::KalmanFilter()
     this->posteriori_covariance[2][1] = 0;
     this->posteriori_covariance[2][2] = 1;
 
-    this->q1 = 0.01;
+    this->q1 = 0.0001;
     this->q2 = 0.001;
-    this->q3 = 0.0001;
+    this->q3 = 0.000001;
 
-    this->r1 = 0.1;
-    this->r2 = 0.1;
+    this->r1 = 1;
+    this->r2 = 1;
 }
 
 void KalmanFilter::add(float *A, float *B, int m, int n, float *C)
