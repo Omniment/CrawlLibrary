@@ -1,14 +1,14 @@
 
-class KalmanFilter
-{
-public:
+class KalmanFilter {
+ public:
   KalmanFilter();
 
-  void update(float theta,float gyro);
+  void update(float theta, float gyro);
   void add(float *A, float *B, int m, int n, float *C);
   void subtract(float *A, float *B, int m, int n, float *C);
   void multiply(float *A, float *B, int m, int p, int n, float *C);
-  void multiply3(float *A, float *B, float *C, int m, int p, int r, int n, float *D);
+  void multiply3(float *A, float *B, float *C, int m, int p, int r, int n,
+                 float *D);
   void transpose(float *A, int m, int n, float *C);
   void inverse2d(float *A, float *AInverse);
   float getTheta();
