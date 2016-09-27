@@ -14,7 +14,7 @@ class KalmanFilter {
   float getTheta();
   float getThetaDot();
   float getThetaVariance();
-
+  float setDt();
   float dt;
   float priori_state[3];
   float posteriori_state[3];
