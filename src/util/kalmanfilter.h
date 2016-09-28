@@ -1,13 +1,12 @@
 
 /**
  * @file kalmanfilter.h
- * @brief カルマンフィルタによって加速度センサとジャイロセンサから姿勢情報を推定する.
- * 
+ * @brief
+ * カルマンフィルタによって加速度センサとジャイロセンサから姿勢情報を推定する.
+ *
  */
 class KalmanFilter {
- public:
-  KalmanFilter();
-
+ private:
   void add(float *A, float *B, int m, int n, float *C);
   void subtract(float *A, float *B, int m, int n, float *C);
   void multiply(float *A, float *B, int m, int p, int n, float *C);
@@ -15,45 +14,6 @@ class KalmanFilter {
                  float *D);
   void transpose(float *A, int m, int n, float *C);
   void inverse2d(float *A, float *AInverse);
-
-  /**
-  * @brief 状態量の更新
-  *
-  * 加速度センサから算出した角度とジャイロセンサから取得された値を用いて状態量(角度,角速度,角速度バイアス)を更新する.
-  * @param theta 加速度センサから算出した角度
-  * @param gyro ジャイロセンサの値
-  * @return なし
-  * @warning 時間間隔dtごとに呼び出して下さい。
-  */
-  void update(float theta, float gyro);
-
-  /**
-   * @brief カルマンフィルタによって推定された角度を取得する
-   * @return カルマンフィルタによって推定された角度
-   * @attention update()を呼び出さない限り,情報は更新されません
-   * @sa update()
-   */
-  float getTheta();
-  /**
-   *@brief カルマンフィルタによって推定された角度の推定値の分散を取得する
-   *@return カルマンフィルタによって推定された角度の推定値の分散
-   *@attention update()を呼び出さない限り,情報は更新されません
-   *@sa update()
-   */
-  float getThetaVariance();
-  /**
-   * @brief カルマンフィルタによって推定された角速度を取得する
-   * @return カルマンフィルタによって推定された角速度
-   * @attention update()を呼び出さない限り,情報は更新されません
-   * @sa update()
-   */
-  void getThetaDot(float);
-  /**
-   * @brief ループ間隔を設定する
-   * @return なし
-   */
-  float setDt();
-
   /** ループ間隔 初期値は0.01秒 */
   float dt;
   /** 事前状態推定値 */
@@ -92,4 +52,45 @@ class KalmanFilter {
   float state_modify[3];
   /** 推定量の分散共分散行列の修正量 */
   float covariance_modify[3][3];
+
+ public:
+  KalmanFilter();
+
+  /**
+  * @brief 状態量の更新
+  *
+  * 加速度センサから算出した角度とジャイロセンサから取得された値を用いて状態量(角度,角速度,角速度バイアス)を更新する.
+  * @param theta 加速度センサから算出した角度
+  * @param gyro ジャイロセンサの値
+  * @return なし
+  * @warning 時間間隔dtごとに呼び出して下さい。
+  */
+  void update(float theta, float gyro);
+
+  /**
+   * @brief カルマンフィルタによって推定された角度を取得する
+   * @return カルマンフィルタによって推定された角度
+   * @attention update()を呼び出さない限り,情報は更新されません
+   * @sa update()
+   */
+  float getTheta();
+  /**
+   *@brief カルマンフィルタによって推定された角度の推定値の分散を取得する
+   *@return カルマンフィルタによって推定された角度の推定値の分散
+   *@attention update()を呼び出さない限り,情報は更新されません
+   *@sa update()
+   */
+  float getThetaVariance();
+  /**
+   * @brief カルマンフィルタによって推定された角速度を取得する
+   * @return カルマンフィルタによって推定された角速度
+   * @attention update()を呼び出さない限り,情報は更新されません
+   * @sa update()
+   */
+  void getThetaDot(float);
+  /**
+   * @brief ループ間隔を設定する
+   * @return なし
+   */
+  float setDt();
 };
