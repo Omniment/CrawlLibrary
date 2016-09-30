@@ -149,8 +149,7 @@ void CrlRobot::calcThetaKalmanFilter() {
   theta = M_PI / 2 - atan2(acc_y, acc_x);
   gyro = this->theta_dot_z;
   kf.update(theta, gyro);
-  this->theta_kalman=kf.getTheta();
-
+  this->theta_kalman = kf.getTheta();
 }
 
 // 各種アクセサ

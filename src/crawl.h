@@ -77,12 +77,12 @@ class CrlRobot {
    * @sa updateState(),updateState()
    */
   float getThetaZ();
-    /**
-   * @brief カルマンフィルタによって推定されたZ軸周りの姿勢角度を取得する
-   * @return Z軸周りの姿勢角度 単位:rad [?,?]
-   * @attention updateState()を呼び出さない限り,情報は更新されません
-   * @sa updateState(),updateState()
-   */
+  /**
+ * @brief カルマンフィルタによって推定されたZ軸周りの姿勢角度を取得する
+ * @return Z軸周りの姿勢角度 単位:rad [?,?]
+ * @attention updateState()を呼び出さない限り,情報は更新されません
+ * @sa updateState(),updateState()
+ */
   float getThetaKalman();
   /**
    * @brief X軸方向の加速度を取得する
