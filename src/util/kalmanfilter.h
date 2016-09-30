@@ -85,10 +85,10 @@ class KalmanFilter {
  * @attention update()を呼び出さない限り,情報は更新されません
  * @sa update()
  */
-  void getThetaDot();
+  float getThetaDot();
   /**
  * @brief ループ間隔を設定する
  * @return なし
  */
-  float setDt(float);
+  void setDt(float);
 };

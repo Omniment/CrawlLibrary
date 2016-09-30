@@ -182,4 +182,4 @@ float KalmanFilter::getThetaDot() { return this->posteriori_state[1]; }
 float KalmanFilter::getThetaVariance() {
   return this->posteriori_covariance[0][0];
 }
-void setDt(float dt) { this->dt = dt; }
+void KalmanFilter::setDt(float dt) { this->dt = dt; }
