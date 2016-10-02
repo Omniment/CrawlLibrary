@@ -1,0 +1,170 @@
+#!/bin/bash
+
+green_echo() {
+    echo -e "\033[32m$@\033[0m"
+}
+
+red_echo() {
+    echo -e "\033[31m$@\033[0m"
+}
+
+if [ $# -le 1 ]; then
+    echo "Usage: $0 MAIN_BRANCH SUB_BRANCH"
+    exit 0
+fi
+
+main_branch=$1
+sub_branch=$2
+merging_branch=${sub_branch}.merging
+squashed_branch=${sub_branch}.squashed
+backup_branch=${sub_branch}.backup
+patch_file=topic2main.patch
+
+# Check 'git' command.
+if [ "$(type git 2>/dev/null)" == "" ]
+then
+    red_echo "[ERROR] You don't have git. Install it."
+    exit 127
+fi
+
+# Check whether 'upstream' is registered, or not.
+if [ "$(git remote | grep upstream)" == "" ]
+then
+    red_echo "[ERROR] You don't register 'upstream' repository. Type"
+    red_echo
+    red_echo "    git remote add upstream YOUR_UPSTREAM_REPO"
+    red_echo
+    exit 127
+fi
+
+# Move the current directory to the top of git directory
+cd $(git rev-parse --show-toplevel)
+
+# Check unstaged or uncommitted files.
+if [ "$(git diff HEAD)" != "" ]
+then
+    red_echo "[ERROR] You have unstaged or uncommitted files."
+    red_echo "        You must commit them if necessary because $0 destructively modifies files."
+    exit 127
+fi
+
+# Clean up garbase branches
+git checkout ${main_branch}
+for b in ${merging_branch} ${squashed_branch}
+do
+    if [ "$(git branch | grep $b)" != "" ]
+    then
+        git branch -D $b
+    fi
+done
+
+##
+## Update a main branch
+##
+
+green_echo "Synchronize ${main_branch} with remotes/upstream/${main_branch}"
+
+git fetch upstream ${main_branch}
+git checkout ${main_branch}
+
+if [ "$(git merge remotes/upstream/${main_branch} --no-commit | grep -i '^CONFLICT')" != "" ] # Try to merge and check conflicts
+then
+    git merge --abort
+    git reset --hard HEAD
+
+    red_echo "[ERROR] Branch '${main_branch}' has conflicts from branch 'remotes/upstream/${main_branch}'"
+    red_echo "        You must solve the conflicts before $0."
+    exit 127
+fi
+
+if [ "$(git diff HEAD)" != "" ] # commit if necessary
+then
+    git commit --no-verify -m "Merge branch 'remotes/upstream/${main_branch}' into '${main_branch}'"
+fi
+
+##
+## Try to merge a main branch into a sub branch (expecting no conflicts)
+##
+
+green_echo "Merge ${main_branch} into ${merging_branch}"
+
+git checkout ${sub_branch}
+git checkout -b ${merging_branch}
+
+if [ "$(git merge ${main_branch} --no-commit | grep -i '^CONFLICT')" != "" ] # Try to merge and check conflicts
+then
+    git merge --abort
+    git reset --hard HEAD
+    git checkout ${sub_branch}
+    git branch -D ${merging_branch}
+
+    red_echo "[ERROR] Branch '${sub_branch}' has conflicts from branch '${main_branch}'"
+    red_echo "        You must solve the conflicts before $0."
+    exit 127
+fi
+
+green_echo "Branch '${sub_branch}' has no conflicts from branch '${main_branch}'"
+
+##
+## Generate a patch file for changes from a main branch to a sub branch
+##
+
+green_echo "Generated patch file '${patch_file}'"
+
+git commit --no-verify -m "Merge branch '${main_branch}' into '${merging_branch}'"
+git diff --no-prefix ${main_branch}..${merging_branch} > ${patch_file}
+
+git checkout ${sub_branch}
+git branch -D ${merging_branch}
+
+##
+## Apply a patch
+##
+
+green_echo "Apply patch file '${patch_file}'"
+
+git checkout ${main_branch}
+git checkout -b ${squashed_branch}
+
+patch -p0 < ${patch_file} # Apply a patch file
+rm ${patch_file} # clean up a patch file
+
+green_echo "The following commits are squashed:"
+
+git log "${main_branch}..${sub_branch}" | cat
+
+git add . # Stage all files
+if git commit --no-verify
+then
+    if [ "$(git branch | grep '${backup_branch}')" == "" ]
+    then
+        ##
+        ## Rename sub branches
+        ##
+        green_echo "The original branch '${sub_branch}' is backed up into branch '${backup_branch}'."
+        green_echo "Squashed branch '${sub_branch}' is created."
+
+        git checkout ${main_branch}
+        git branch -m ${sub_branch} ${backup_branch} \
+            && git branch -m ${squashed_branch} ${sub_branch}
+        git checkout ${main_branch}
+
+        green_echo "You can update the topic branch '${sub_branch}' by"
+        green_echo
+        green_echo "    git push -f origin ${sub_branch}:${sub_branch}    # Forcely-push the squashed commit"
+        green_echo "    git branch -D ${backup_branch}    # Remove a backup branch if unnecessary"
+        green_echo
+        green_echo "or restore the old branch by"
+        green_echo
+        green_echo "    git branch -D ${sub_branch}    # Remove the generated branch"
+        green_echo "    git branch -m ${backup_branch} ${sub_branch}    # Restore the backup branch"
+        green_echo
+    else
+        red_echo "[Warning] Old backup branch ${backup_branch} remains..."
+        red_echo
+        red_echo "    git branch -D ${backup_branch}    # Remove a backup branch if unnecessary"
+    fi
+else
+    red_echo "[Warning] Commit is cancelled. Reset unstaged files."
+    git reset --hard HEAD
+fi
