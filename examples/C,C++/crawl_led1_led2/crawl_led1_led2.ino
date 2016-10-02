@@ -13,7 +13,7 @@
 #include <crawl.h>
 
 int LED1 = 13;  // D13に接続されているLED1をわかりやすく定義します
-int LED2 = 9;  // D9に接続されているLED2をわかりやすく定義します
+int LED2 = 9;   // D9に接続されているLED2をわかりやすく定義します
 
 int main() {
   crl.init();

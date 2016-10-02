@@ -31,25 +31,25 @@ int main() {
     //前進
     crl.setMotorLeft(0.5);   //左モーターを出力0.5で設定
     crl.setMotorRight(0.5);  //右モーターを出力0.5で設定
-    crl.updateState();  //設定した値をモータードライバーに送信
-    delay(1000);        // 1秒間待つ
+    crl.updateState();       //設定した値をモータードライバーに送信
+    delay(1000);             // 1秒間待つ
 
     //右回転
     crl.setMotorLeft(0.5);    //左モーターを出力0.5に設定
     crl.setMotorRight(-0.5);  //右モーターを出力-0.5(逆回転)に設定
-    crl.updateState();  //設定した値をモータードライバーに送信
-    delay(1000);        // 1秒間待つ
+    crl.updateState();        //設定した値をモータードライバーに送信
+    delay(1000);              // 1秒間待つ
 
     //後退
     crl.setMotorLeft(-0.5);   //左モーターを出力-0.5(逆回転)で設定
     crl.setMotorRight(-0.5);  //右モーターを出力-0.5(逆回転)で設定
-    crl.updateState();  //設定した値をモータードライバーに送信
-    delay(1000);        // 1秒間待つ
+    crl.updateState();        //設定した値をモータードライバーに送信
+    delay(1000);              // 1秒間待つ
 
     //左回転
     crl.setMotorLeft(-0.5);  //左モーターを出力-0.5(逆回転)に設定
     crl.setMotorRight(0.5);  //右モーターを出力0.5に設定
-    crl.updateState();  //設定した値をモータードライバーに送信
-    delay(1000);        // 1秒間待つ
+    crl.updateState();       //設定した値をモータードライバーに送信
+    delay(1000);             // 1秒間待つ
   }
 }
