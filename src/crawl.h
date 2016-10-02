@@ -10,6 +10,170 @@
 #include <Arduino.h>
 
 /**
+ * @class FirtstOrderFilter
+ * @brief
+ * 一次遅れフィルタークラス.
+ */
+class FirtstOrderFilter {
+  /// @cond develop
+ protected:
+  /** サンプリング時間 */
+  float dt;
+  /** 時定数 */
+  float T;
+  /** 出力値 */
+  float y;
+  /// @endcond
+ public:
+  /**
+   * @brief コンストラクタ
+   *
+   * 一時遅れフィルタのコンストラクタ.出力初期値は0,時定数は1秒,サンプリングタイムは1ミリ秒で初期化されます.
+   * @return なし
+   */
+  FirtstOrderFilter();
+  /**
+   * @brief サンプリングタイムを設定する
+   *
+   * @param dt ループ間隔 単位:秒
+   * @return なし
+   */
+  void setDt(float dt);
+  /**
+   * @brief 時定数を設定する
+   *
+   * @param T 時定数 単位:秒
+   * @return なし
+   */
+  void setT(float T);
+
+  /**
+   * @brief 出力値を取得する
+   *
+   * フィルタを通した値を取得します.
+   * @return フィルタを通した値
+   */
+  float getOutput();
+  /**
+   * @brief 入力から出力を計算する
+   *
+   * ルンゲクッタ法により4次の精度で一時遅れフィルターを計算します.
+   * @param x 入力値
+   * @return なし
+   * @attention ループ中では一回だけ呼び出すようにしてください.
+   */
+  float calculate(float x);
+};
+
+/**
+ * @class LaggedDerivative
+ * @brief
+ * 不完全微分要素クラス.
+ *
+ * 一次遅れフィルタークラスを継承
+ */
+class LaggedDerivative : public FirtstOrderFilter {
+  /// @cond develop
+  /** 出力値 */
+  float y;
+  /// @endcond
+ public:
+  /**
+   * @brief 入力から出力を計算する
+   *
+   * ルンゲクッタ法により4次の精度で不完全微分を計算します.
+   * @param x 入力値
+   * @return なし
+   * @attention ループ中では一回だけ呼び出すようにしてください.
+   */
+  float calculate(float x);
+  /**
+   * @brief 不完全微分した値を取得する
+   *
+   * 不完全微分した値を取得します.
+   * @return 不完全微分した値
+   */
+  float getOutput();
+};
+/**
+ * @class Integral
+ * @brief
+ * 制限付き積分要素クラス
+ *
+ * 制限値を設定できる積分要素クラスです.積分値が制限値よりも大きく(または小さく)
+ * なる場合制限値の範囲に修正され収められます.
+ * 制限値は任意で設定できます.設定しない場合,下限値としてfloatの負の最大値,
+ * 上限値として,floatの正の最大値が設定されます.
+ * このクラスはサンプリング時間[s]を指定する必要があります.ループ内で使用する場合,
+ * 一般的に一回のループ時間を指定ください.
+ */
+class Integral {
+ public:
+  /**
+   * @brief コンストラクタ
+   *
+   * 制限付き積分要素クラスのコンストラクタ.出力初期値は0,時定数は1秒,サンプリングタイムは1ミリ秒で初期化されます.
+   * 制限値は下限値としてfloatの負の最大値,上限値として,floatの正の最大値が設定されます.
+   * @return なし
+   */
+  Integral();
+  /**
+   * @brief サンプリングタイムを設定する
+   *
+   * @param dt ループ間隔 単位:秒
+   * @return なし
+   */
+  void setDt(float dt);
+  /**
+   * @brief 出力される積分値を設定する
+   *
+   *
+   * 積分値をリセットしたい場合,
+   * 任意の値を予め与えておきたい場合に使用してください
+   * @param y 設定したい値
+   * @return なし
+   */
+  void setOutput(float y);
+  /**
+   * @brief 積分の制限値を設定する
+   *
+   * 積分値が大きく(または小さく)なりすぎることを制限することができます.
+   * 下限値と上限値を指定することができ,この範囲を積分値が超える場合
+   * その範囲に収まるように修正されます.
+   * @param limit_low 下限値
+   * @param limit_high 上限値
+   * @return なし
+   */
+  void setLimit(float limit_low, float limit_high);
+  /**
+   * @brief 入力から出力を計算する
+   *
+   * 制限付き積分を計算します.
+   * @param x 入力値
+   * @return なし
+   * @attention ループ中では一回だけ呼び出すようにしてください.
+   */
+  void calculate(float x);
+  /**
+   * @brief 制限付き積分した値を取得する
+   *
+   * 制限付き積分した値を取得します.
+   * @return 制限付き積分した値
+   */
+  float getOutput();
+
+  /// @cond develop
+  /** 時定数 */
+  float y;
+  /** 下限値 */
+  float limit_low;
+  /** 上限値 */
+  float limit_high;
+  /** サンプリング時間 */
+  float dt;
+  /// @endcond
+};
+/**
  * @class CrlRobot
  * @brief
  * クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.
@@ -74,9 +238,20 @@ class CrlRobot {
    * @brief Z軸周りの姿勢角度を取得する
    * @return Z軸周りの姿勢角度 単位:rad [?,?]
    * @attention updateState()を呼び出さない限り,情報は更新されません
-   * @sa updateState(),updateState()
+   * @sa updateState()
    */
   float getThetaZ();
+  /**
+   * @brief 倒立時のクロール上端の速度を取得する
+   *
+   * 倒立時のクロール上端の速度を取得する.取得する速度はグローバル座標のX軸方向
+   * の速度であり,グローバル座標でX軸正方向にクロール上端が移動すると正の速度が
+   * 取得され,X軸負方向への移動の場合も同様に負の速度が取得されます.
+   * @return 倒立時のクロール上端の速度 単位:m/s
+   * @attention updateState()を呼び出さない限り,情報は更新されません
+   * @sa updateState()
+   */
+  float getHeadVelocity();
   /**
    * @brief X軸方向の加速度を取得する
    * @return X軸方向の加速度 単位:m/s^2
@@ -211,6 +386,8 @@ class CrlRobot {
   int dt_us;
   /** Z軸周りの姿勢角度 単位:rad */
   float theta;
+  /** クロール上端のX軸方向速度 単位:m/s */
+  float head_velocity;
   /** X軸方向の加速度 単位:m/s^2 */
   float acc_x;
   /** Y軸方向の加速度 単位:m/s^2 */
@@ -223,11 +400,11 @@ class CrlRobot {
   float theta_dot_y;
   /** Z軸周りの角速度 単位:rad/s */
   float theta_dot_z;
-  /** X軸方向の加速度のセンサの真値との偏差 単位:m/s^2 */
+  /** X軸周りの角速度の真値との偏差 */
   float offset_gx;
-  /** Y軸方向の加速度のセンサの真値との偏差 単位:m/s^2 */
+  /** Y軸周りの角速度の真値との偏差 */
   float offset_gy;
-  /** Z軸方向の加速度のセンサの真値との偏差 単位:m/s^2 */
+  /** Z軸周りの角速度の真値との偏差 */
   float offset_gz;
   /** 左モータの出力設定値 */
   float motor_left;
@@ -248,6 +425,14 @@ class CrlRobot {
   /**
    * 姿勢角度計算用相補フィルターの係数(角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度の寄与度)*/
   float rate_theta;
+  /** X軸方向の加速度センサ用の一次遅れフィルタ */
+  FirtstOrderFilter fof_acc_x;
+  /** Y軸方向の加速度センサ用の一次遅れフィルタ */
+  FirtstOrderFilter fof_acc_y;
+  /** Z軸方向の加速度センサ用の一次遅れフィルタ */
+  FirtstOrderFilter fof_acc_z;
+  /** オドメトリをから移動速度を計算するための不完全微分 */
+  LaggedDerivative ld_odometry;
 
   /**
    * @brief 姿勢角度計算用相補フィルター
@@ -272,14 +457,15 @@ class CrlRobot {
    * @sa updateState()
    */
   void calcState();
+
   /**
    * @brief updateState()のサブ関数
    *
-   * 取得した生のセンサ情報をキャリブレーション情報を元に加工し,使用しやすい値に変換します.
+   * 倒立時のクロール上端の速度を計算する.
    * @return なし
    * @sa updateState()
    */
-  void initGyroOffset();
+  void calcHeadVelocity();
   /**
    * @brief init()のサブ関数
    *
@@ -288,7 +474,7 @@ class CrlRobot {
    * @return なし
    * @sa init()
    */
-  void initTheta();
+  void initGyroOffset();
   /**
    * @brief init()のサブ関数
    *
@@ -297,90 +483,8 @@ class CrlRobot {
    * @return なし
    * @sa init()
    */
+  void initTheta();
   /// @endcond
-};
-
-/**
- * @class FirtstOrderFilter
- * @brief
- * 一次遅れフィルタークラス.
- */
-class FirtstOrderFilter {
-  /// @cond develop
- protected:
-  float dt;
-  float T;
-  float y;
-  /// @endcond
- public:
-  /**
-   * @brief コンストラクタ
-   *
-   * 一時遅れフィルタのコンストラクタ.出力初期値は0,時定数は1秒,サンプリングタイムは1ミリ秒で初期化されます.
-   * @return なし
-   */
-  FirtstOrderFilter();
-  /**
-   * @brief サンプリングタイムを設定する
-   *
-   * @param dt ループ間隔 単位:秒
-   * @return なし
-   */
-  void setDt(float dt);
-  /**
-   * @brief 時定数を設定する
-   *
-   * @param T 時定数 単位:秒
-   * @return なし
-   */
-  void setT(float T);
-
-  /**
-   * @brief 出力値を取得する
-   *
-   * フィルタを通した値を取得します.
-   * @return フィルタを通した値
-   */
-  float getOutput();
-  /**
-   * @brief 入力から出力を計算する
-   *
-   * ルンゲクッタ法により4次の精度で一時遅れフィルターを計算します.
-   * @param x 入力値
-   * @return なし
-   * @attention ループ中では一回だけ呼び出すようにしてください.
-   */
-  float calculate(float x);
-};
-
-/**
- * @class LaggedDerivative
- * @brief
- * 不完全微分クラス.
- *
- * 一次遅れフィルタークラスを継承
- */
-class LaggedDerivative : public FirtstOrderFilter {
-  /// @cond develop
-  float y;
-  /// @endcond
- public:
-  /**
-   * @brief 入力から出力を計算する
-   *
-   * ルンゲクッタ法により4次の精度で不完全微分を計算します.
-   * @param x 入力値
-   * @return なし
-   * @attention ループ中では一回だけ呼び出すようにしてください.
-   */
-  float calculate(float x);
-  /**
-   * @brief 不完全微分した値を取得する
-   *
-   * 不完全微分した値を取得します.
-   * @return 不完全微分した値
-   */
-  float getOutput();
 };
 
 /** CrlRobotのインスタンス */

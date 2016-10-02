@@ -1,7 +1,15 @@
 Crawl	KEYWORD1
 crl	KEYWORD1
+CrlRobot	KEYWORD1
+FirtstOrderFilter	KEYWORD1
+LaggedDerivative	KEYWORD1
+Integral	KEYWORD1
 init	KEYWORD2
 setDt	KEYWORD2
+setT	KEYWORD2
+calculate	KEYWORD2
+getOutput	KEYWORD2
+setLimit
 getThetaX	KEYWORD2
 getThetaY	KEYWORD2
 getThetaZ	KEYWORD2
@@ -21,3 +29,4 @@ setMotorLeft	KEYWORD2
 setMotorRight	KEYWORD2
 realtimeLoop	KEYWORD2
 updateState	KEYWORD2
+getHeadVelocity	KEYWORD2
