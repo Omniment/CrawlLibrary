@@ -86,12 +86,9 @@ void CrlRobot::initGyroOffset() {
   for (i = 0; i < 200; i++) {
     getAttitude();
     delay(1);
-    this->offset_gx =
-        this->offset_gx * update_rate + attitude_data[4] * (1.0 - update_rate);
-    this->offset_gy =
-        this->offset_gy * update_rate + attitude_data[5] * (1.0 - update_rate);
-    this->offset_gz =
-        this->offset_gz * update_rate + attitude_data[6] * (1.0 - update_rate);
+    this->offset_gx = this->offset_gx * update_rate + attitude_data[4] * (1.0 - update_rate);
+    this->offset_gy = this->offset_gy * update_rate + attitude_data[5] * (1.0 - update_rate);
+    this->offset_gz = this->offset_gz * update_rate + attitude_data[6] * (1.0 - update_rate);
   }
 }
 void CrlRobot::initTheta() {
@@ -158,16 +155,12 @@ void CrlRobot::calcState() {
 void CrlRobot::calcTheta() {
   float theta1;
   theta1 = M_PI / 2 - atan2(acc_y, acc_x);
-  this->theta =
-      this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
+  this->theta = this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
   this->theta = this->theta + this->theta_dot_z * this->dt;
 }
 void CrlRobot::calcHeadVelocity() {
-  ld_odometry.calculate((this->encoder_right + this->encoder_left) *
-                        this->kEtoMM / 2.0);
-  this->head_velocity =
-      CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta - M_PI / 2.0) -
-      ld_odometry.getOutput();
+  ld_odometry.calculate((this->encoder_right + this->encoder_left) * this->kEtoMM / 2.0);
+  this->head_velocity = CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta - M_PI / 2.0) - ld_odometry.getOutput();
 }
 // 各種アクセサ
 void CrlRobot::setDt(float _dt) {
@@ -181,9 +174,7 @@ void CrlRobot::setDt(float _dt) {
 
 void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 
-void CrlRobot::setMotorRight(float motor_right) {
-  this->motor_right = motor_right;
-}
+void CrlRobot::setMotorRight(float motor_right) { this->motor_right = motor_right; }
 
 void CrlRobot::resetEncoderLeft() { this->encoder_left = 0; }
 
@@ -215,9 +206,7 @@ float CrlRobot::getEncoderRight() { return this->encoder_right; }
 
 float CrlRobot::getOdometryLeft() { return this->encoder_left * this->kEtoMM; }
 
-float CrlRobot::getOdometryRight() {
-  return this->encoder_right * this->kEtoMM;
-}
+float CrlRobot::getOdometryRight() { return this->encoder_right * this->kEtoMM; }
 
 FirtstOrderFilter::FirtstOrderFilter() : y(0), T(1), dt(0.001) {}
 
@@ -248,8 +237,7 @@ float LaggedDerivative::calculate(float x) {
 }
 float LaggedDerivative::getOutput() { return this->y; }
 
-Integral::Integral()
-    : y(0), dt(0.001), limit_low(-FLT_MAX), limit_high(FLT_MAX) {}
+Integral::Integral() : y(0), dt(0.001), limit_low(-FLT_MAX), limit_high(FLT_MAX) {}
 
 void Integral::setDt(float dt) { this->dt = dt; }
 

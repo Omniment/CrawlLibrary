@@ -14,7 +14,7 @@
 int LED1 = 13;  // D13に接続されているLED1をわかりやすく定義します
 
 int main() {
-  crl.init();  //クロールの初期設定を行います crlはCrawlの略称です
+  crl.init();             //クロールの初期設定を行います crlはCrawlの略称です
   pinMode(LED1, OUTPUT);  // LED1(D13)の使い方を"出力(OUTPUT)"に設定します
 
   while (1) {               //プログラムはこの中でループします
