@@ -30,10 +30,18 @@ void setupUSB() {}
 #include <Wire.h>
 
 // 数学処理
+#define _USE_MATH_DEFINES
 #include <math.h>
+#include <float.h>
 
 CrlRobot crl;
 KalmanFilter kf;
+
+
+#define FOF_ACC_T (1.0 / 25.0)
+#define ODOMETRY_T (1.0 / 50.0)
+#define CRAWL_LENGTH (0.195)
+
 void CrlRobot::init() {
   ::init();
   ::initVariant();
@@ -45,7 +53,7 @@ void CrlRobot::init() {
   Wire.begin();          // I2Cセットアップ
   pinMode(13, OUTPUT);   // LEDピン設定
   initAttitudeSensor();  // 姿勢センサ機能の初期化
-  delay(100);
+  delay(300);
 
   Serial.begin(9600);     // UARTを9600bpsでセットアップ
   digitalWrite(13, LOW);  // LEDピン設定
@@ -61,10 +69,14 @@ void CrlRobot::init() {
 
   this->encoder_left = 0;
   this->encoder_right = 0;
-
+  fof_acc_x.setT(FOF_ACC_T);
+  fof_acc_y.setT(FOF_ACC_T);
+  fof_acc_z.setT(FOF_ACC_T);
+  ld_odometry.setDt(dt);
+  ld_odometry.setT(ODOMETRY_T);
+  delay(300);
   initGyroOffset();
   initTheta();
-  delay(300);
   digitalWrite(13, HIGH);  // LEDピン設定
 }
 void CrlRobot::initGyroOffset() {
@@ -78,12 +90,9 @@ void CrlRobot::initGyroOffset() {
   for (i = 0; i < 200; i++) {
     getAttitude();
     delay(1);
-    this->offset_gx =
-        this->offset_gx * update_rate + attitude_data[4] * (1.0 - update_rate);
-    this->offset_gy =
-        this->offset_gy * update_rate + attitude_data[5] * (1.0 - update_rate);
-    this->offset_gz =
-        this->offset_gz * update_rate + attitude_data[6] * (1.0 - update_rate);
+    this->offset_gx = this->offset_gx * update_rate + attitude_data[4] * (1.0 - update_rate);
+    this->offset_gy = this->offset_gy * update_rate + attitude_data[5] * (1.0 - update_rate);
+    this->offset_gz = this->offset_gz * update_rate + attitude_data[6] * (1.0 - update_rate);
   }
 }
 void CrlRobot::initTheta() {
@@ -99,7 +108,13 @@ void CrlRobot::initTheta() {
 void CrlRobot::realtimeLoop() { makeTiming(); }
 
 void CrlRobot::makeTiming() {
-  // Serial.println(this->tt);
+  /* dt_us(dt)以内で計算が終了いない場合LED2を点灯させる*/
+  if (micros() - this->t2 > this->dt_us) {
+    digitalWrite(9, HIGH);  // LED2を点灯
+  } else {
+    digitalWrite(9, LOW);  // LED2を消灯
+  }
+
   while (this->t1 - this->t2 < this->dt_us) this->t1 = micros();
   this->tt = this->t1 - this->t2;
   this->t2 = this->t1;
@@ -111,7 +126,11 @@ void CrlRobot::updateState() {
   setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
   calcTheta();
+
   calcThetaKalmanFilter();
+
+  calcHeadVelocity();
+
 }
 
 void CrlRobot::calcState() {
@@ -128,9 +147,13 @@ void CrlRobot::calcState() {
   gy = (attitude_data[5] - offset_gy);
   gz = (attitude_data[6] - offset_gz);
 
-  this->acc_x = ay * 0.00059855;  // 2/2^15*9.80665=0.00059855
-  this->acc_y = az * 0.00059855;
-  this->acc_z = ax * 0.00059855;
+  fof_acc_x.calculate(ay * 0.00059855);  // 2/2^15*9.80665=0.00059855
+  fof_acc_y.calculate(az * 0.00059855);
+  fof_acc_z.calculate(ax * 0.00059855);
+
+  this->acc_x = fof_acc_x.getOutput();  // 2/2^15*9.80665=0.00059855
+  this->acc_y = fof_acc_y.getOutput();
+  this->acc_z = fof_acc_z.getOutput();
 
   this->theta_dot_x = gy * 0.00013316;  // 250/(2^15)/360*2*pi=0.00013316
   this->theta_dot_y = gz * 0.00013316;
@@ -140,10 +163,10 @@ void CrlRobot::calcState() {
 void CrlRobot::calcTheta() {
   float theta1;
   theta1 = M_PI / 2 - atan2(acc_y, acc_x);
-  this->theta =
-      this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
+  this->theta = this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
   this->theta = this->theta + this->theta_dot_z * this->dt;
 }
+
 void CrlRobot::calcThetaKalmanFilter() {
   float theta, gyro;
   theta = M_PI / 2 - atan2(acc_y, acc_x);
@@ -152,17 +175,25 @@ void CrlRobot::calcThetaKalmanFilter() {
   this->theta_kalman = kf.getTheta();
 }
 
+
+void CrlRobot::calcHeadVelocity() {
+  ld_odometry.calculate((this->encoder_right + this->encoder_left) * this->kEtoMM / 2.0);
+  this->head_velocity = CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta - M_PI / 2.0) - ld_odometry.getOutput();
+}
+
 // 各種アクセサ
 void CrlRobot::setDt(float _dt) {
   this->dt = _dt;
   this->dt_us = _dt * 1000000;
+  fof_acc_x.setDt(_dt);
+  fof_acc_y.setDt(_dt);
+  fof_acc_z.setDt(_dt);
+  ld_odometry.setDt(_dt);
 }
 
 void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 
-void CrlRobot::setMotorRight(float motor_right) {
-  this->motor_right = motor_right;
-}
+void CrlRobot::setMotorRight(float motor_right) { this->motor_right = motor_right; }
 
 void CrlRobot::resetEncoderLeft() { this->encoder_left = 0; }
 
@@ -174,7 +205,11 @@ float CrlRobot::getThetaY() { return this->theta; }
 
 float CrlRobot::getThetaZ() { return this->theta; }
 
+
 float CrlRobot::getThetaKalman() { return this->theta_kalman; }
+
+float CrlRobot::getHeadVelocity() { return this->head_velocity; }
+
 
 float CrlRobot::getAccX() { return this->acc_x; }
 
@@ -194,9 +229,7 @@ float CrlRobot::getEncoderRight() { return this->encoder_right; }
 
 float CrlRobot::getOdometryLeft() { return this->encoder_left * this->kEtoMM; }
 
-float CrlRobot::getOdometryRight() {
-  return this->encoder_right * this->kEtoMM;
-}
+float CrlRobot::getOdometryRight() { return this->encoder_right * this->kEtoMM; }
 
 FirtstOrderFilter::FirtstOrderFilter() : y(0), T(1), dt(0.001) {}
 
@@ -226,3 +259,33 @@ float LaggedDerivative::calculate(float x) {
   this->y = (x - FirtstOrderFilter::getOutput()) / FirtstOrderFilter::T;
 }
 float LaggedDerivative::getOutput() { return this->y; }
+
+Integral::Integral() : y(0), dt(0.001), limit_low(-FLT_MAX), limit_high(FLT_MAX) {}
+
+void Integral::setDt(float dt) { this->dt = dt; }
+
+void Integral::setOutput(float y) {
+  this->y = y;
+  if (this->y < limit_low) {
+    this->y = limit_low;
+  }
+  if (limit_high < this->y) {
+    this->y = limit_high;
+  }
+}
+
+void Integral::setLimit(float limit_low, float limit_high) {
+  this->limit_low = limit_low;
+  this->limit_high = limit_high;
+}
+
+void Integral::calculate(float x) {
+  this->y = x * this->dt;
+  if (this->y < limit_low) {
+    this->y = limit_low;
+  }
+  if (limit_high < this->y) {
+    this->y = limit_high;
+  }
+}
+float Integral::getOutput() { return this->y; }
