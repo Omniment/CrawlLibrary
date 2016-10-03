@@ -3,48 +3,33 @@
 KalmanFilter::KalmanFilter() {
   this->dt = 0.01;
   this->posteriori_state[0] = 0;
-  this->posteriori_state[1] = 0.;
-  this->posteriori_state[2] = 0;
-
+  this->posteriori_state[1] = 0;
   this->F[0][0] = 1;
   this->F[0][1] = this->dt;
-  this->F[0][2] = -this->dt;
 
   this->F[1][0] = 0;
   this->F[1][1] = 1;
-  this->F[1][2] = 0;
 
-  this->F[2][0] = 0;
-  this->F[2][1] = 0;
-  this->F[2][2] = 1;
 
-  this->transpose((float*)this->F, 3, 3, (float*)this->FT);
+  this->transpose((float*)this->F, 2, 2, (float*)this->FT);
 
   this->H[0][0] = 1;
   this->H[0][1] = 0;
-  this->H[0][2] = 0;
 
   this->H[1][0] = 0;
   this->H[1][1] = 1;
-  this->H[1][2] = 0;
 
-  this->transpose((float*)this->H, 2, 3, (float*)this->HT);
+  this->transpose((float*)this->H, 2, 2, (float*)this->HT);
 
   this->posteriori_covariance[0][0] = 1;
   this->posteriori_covariance[0][1] = 0;
-  this->posteriori_covariance[0][2] = 0;
 
   this->posteriori_covariance[1][0] = 0;
   this->posteriori_covariance[1][1] = 1;
-  this->posteriori_covariance[1][2] = 0;
 
-  this->posteriori_covariance[2][0] = 0;
-  this->posteriori_covariance[2][1] = 0;
-  this->posteriori_covariance[2][2] = 1;
 
   this->q1 = 0.0001;
   this->q2 = 0.001;
-  this->q3 = 0.000001;
 
   this->r1 = 1;
   this->r2 = 1;
@@ -118,36 +103,32 @@ void KalmanFilter::inverse2d(float* A, float* B) {
   B[3] = A[0] / det;
 }
 
-void KalmanFilter::update(float theta, float gyro) {
+void KalmanFilter::update(float theta, float gyro,float gyro_offset) {
   float observation[2];
   observation[0] = theta;
-  observation[1] = gyro;
+  observation[1] = gyro - gyro_offset;
 
   // z = F z
-  this->priori_state[0] =
-      this->posteriori_state[0] +
-      (this->posteriori_state[1] - this->posteriori_state[2]) * dt;
+  this->priori_state[0] = this->posteriori_state[0] + this->posteriori_state[1]  * dt;
   this->priori_state[1] = this->posteriori_state[1];
-  this->priori_state[2] = this->posteriori_state[2];
 
   // P = F P F.T + Q
   this->multiply3((float*)F, (float*)this->posteriori_covariance,
-                  (float*)this->FT, 3, 3, 3, 3,
+                  (float*)this->FT, 2, 2, 2, 2,
                   (float*)this->priori_covariance);
   this->priori_covariance[0][0] += this->q1;
   this->priori_covariance[1][1] += this->q2;
-  this->priori_covariance[2][2] += this->q3;
 
   // S = H P H.T + R
   this->multiply3((float*)H, (float*)this->priori_covariance, (float*)this->HT,
-                  2, 3, 3, 2, (float*)this->S);
+                  2, 2, 2, 2, (float*)this->S);
   this->S[0][0] += this->r1;
   this->S[1][1] += this->r2;
 
   // K = P H.T S^{-1}
   this->inverse2d((float*)this->S, (float*)this->S_inverse);
   this->multiply3((float*)this->priori_covariance, (float*)this->HT,
-                  (float*)this->S_inverse, 3, 3, 2, 2, (float*)this->K);
+                  (float*)this->S_inverse, 2, 2, 2, 2, (float*)this->K);
 
   // e = (x - H z)
   this->estimated_observation[0] = this->priori_state[0];
@@ -156,18 +137,18 @@ void KalmanFilter::update(float theta, float gyro) {
                  (float*)this->e);
 
   // z = z + K e
-  this->multiply((float*)this->K, (float*)this->e, 3, 2, 1,
+  this->multiply((float*)this->K, (float*)this->e, 2, 2, 1,
                  (float*)this->state_modify);
-  this->add((float*)this->priori_state, (float*)this->state_modify, 3, 1,
+  this->add((float*)this->priori_state, (float*)this->state_modify, 2, 1,
             (float*)this->posteriori_state);
 
   // P = P - K  S  K.T
-  this->transpose((float*)this->K, 3, 2, (float*)this->KT);
-  this->multiply3((float*)this->K, (float*)this->S, (float*)this->KT, 3, 2, 2,
-                  3, (float*)this->covariance_modify);
+  this->transpose((float*)this->K, 2, 2, (float*)this->KT);
+  this->multiply3((float*)this->K, (float*)this->S, (float*)this->KT, 2, 2, 2,
+                  2, (float*)this->covariance_modify);
 
   this->subtract((float*)this->priori_covariance,
-                 (float*)this->covariance_modify, 3, 3,
+                 (float*)this->covariance_modify, 2, 2,
                  (float*)this->posteriori_covariance);
 }
 
@@ -175,8 +156,6 @@ float KalmanFilter::getTheta() { return this->posteriori_state[0]; }
 
 float KalmanFilter::getThetaDot() { return this->posteriori_state[1]; }
 
-float KalmanFilter::getThetaVariance() {
-  return this->posteriori_covariance[0][0];
-}
+float KalmanFilter::getThetaVariance() { return this->posteriori_covariance[0][0]; }
 
 void KalmanFilter::setDt(float dt) { this->dt = dt; }
