@@ -37,7 +37,6 @@ void setupUSB() {}
 CrlRobot crl;
 KalmanFilter kf;
 
-
 #define FOF_ACC_T (1.0 / 25.0)
 #define ODOMETRY_T (1.0 / 50.0)
 #define CRAWL_LENGTH (0.195)
@@ -130,7 +129,6 @@ void CrlRobot::updateState() {
   calcThetaKalmanFilter();
 
   calcHeadVelocity();
-
 }
 
 void CrlRobot::calcState() {
@@ -171,10 +169,9 @@ void CrlRobot::calcThetaKalmanFilter() {
   float theta, gyro;
   theta = M_PI / 2 - atan2(acc_y, acc_x);
   gyro = this->theta_dot_z;
-  kf.update(theta, gyro,offset_gz * 0.00013316);
+  kf.update(theta, gyro, offset_gz * 0.00013316);
   this->theta_kalman = kf.getTheta();
 }
-
 
 void CrlRobot::calcHeadVelocity() {
   ld_odometry.calculate((this->encoder_right + this->encoder_left) * this->kEtoMM / 2.0);
@@ -205,11 +202,9 @@ float CrlRobot::getThetaY() { return this->theta; }
 
 float CrlRobot::getThetaZ() { return this->theta; }
 
-
 float CrlRobot::getThetaKalman() { return this->theta_kalman; }
 
 float CrlRobot::getHeadVelocity() { return this->head_velocity; }
-
 
 float CrlRobot::getAccX() { return this->acc_x; }
 
