@@ -13,7 +13,7 @@
 #include "crawl.h"
 // エンコーダ読み取り
 #include "encoder.h"
-// センサヒュージョン
+// カルマンフィルタ
 #include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
 int atexit(void (* /*func*/)()) { return 0; }

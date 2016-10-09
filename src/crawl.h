@@ -225,7 +225,8 @@ class CrlRobot {
    * このメンバ関数は,センサのヒュージョン方法を設定します.
    * このメンバ関数を呼び出さない場合,相補フィルタによってセンサヒュージョンを行います.
    *
-   * @param enable_kalman カルマンフィルタを有効にする場合 true
+   * @param enable_kalman カルマンフィルタを有効にする場合true,相補フィルタを有効にする場合false
+   * @attention カルマンフィルタを用いてセンサヒュージョンを行う場合,2 [ms]の計算時間がかかります
    * @return なし
    */
   void setKalman(bool enable_kalman);
