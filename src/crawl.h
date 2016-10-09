@@ -10,11 +10,11 @@
 #include <Arduino.h>
 
 /**
- * @class FirtstOrderFilter
+ * @class FirstOrderFilter
  * @brief
  * 一次遅れフィルタークラス.
  */
-class FirtstOrderFilter {
+class FirstOrderFilter {
   /// @cond develop
  protected:
   /** サンプリング時間 */
@@ -31,7 +31,7 @@ class FirtstOrderFilter {
    * 一時遅れフィルタのコンストラクタ.出力初期値は0,時定数は1秒,サンプリングタイムは1ミリ秒で初期化されます.
    * @return なし
    */
-  FirtstOrderFilter();
+  FirstOrderFilter();
   /**
    * @brief サンプリングタイムを設定する
    *
@@ -72,7 +72,7 @@ class FirtstOrderFilter {
  *
  * 一次遅れフィルタークラスを継承
  */
-class LaggedDerivative : public FirtstOrderFilter {
+class LaggedDerivative : public FirstOrderFilter {
   /// @cond develop
   /** 出力値 */
   float y;
@@ -426,11 +426,11 @@ class CrlRobot {
    * 姿勢角度計算用相補フィルターの係数(角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度の寄与度)*/
   float rate_theta;
   /** X軸方向の加速度センサ用の一次遅れフィルタ */
-  FirtstOrderFilter fof_acc_x;
+  FirstOrderFilter fof_acc_x;
   /** Y軸方向の加速度センサ用の一次遅れフィルタ */
-  FirtstOrderFilter fof_acc_y;
+  FirstOrderFilter fof_acc_y;
   /** Z軸方向の加速度センサ用の一次遅れフィルタ */
-  FirtstOrderFilter fof_acc_z;
+  FirstOrderFilter fof_acc_z;
   /** オドメトリをから移動速度を計算するための不完全微分 */
   LaggedDerivative ld_odometry;
 
