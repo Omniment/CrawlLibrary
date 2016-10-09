@@ -2,9 +2,9 @@
 #define CRL_PI 3.14159265358979  //円周率を定義
 
 int main() {
-  float kp1 = 5.0;               // 角度制御比例ゲイン (調節パラメータ)
-  float kp2 = 8.0;               // 上端速度制御比例ゲイン (調節パラメータ)
-  float ki2 = 40.0;               // 上端速度制御積分ゲイン (調節パラメータ)
+  float kp1 = 5.0;   // 角度制御比例ゲイン (調節パラメータ)
+  float kp2 = 8.0;   // 上端速度制御比例ゲイン (調節パラメータ)
+  float ki2 = 40.0;  // 上端速度制御積分ゲイン (調節パラメータ)
 
   float dt = 0.010;              // サンプリング時間 [s]
   float theta;                   // 角度 [rad]
@@ -21,11 +21,11 @@ int main() {
 
   FirstOrderFilter fof_err2;
   fof_err2.setDt(dt);
-  fof_err2.setT(1.0/15);
+  fof_err2.setT(1.0 / 15);
 
   FirstOrderFilter fof_err2i;
   fof_err2i.setDt(dt);
-  fof_err2i.setT(1.0/5);
+  fof_err2i.setT(1.0 / 5);
 
   crl.init();     // ロボットの初期化
   crl.setDt(dt);  // サンプリング時間を設定
@@ -37,12 +37,12 @@ int main() {
     head_velocity = crl.getHeadVelocity();  // クロールの実上端速度を取得
 
     err1 = (theta_d + fof_err2i.getOutput() * ki2) - theta;  // 目標角度と実角度の偏差を計算
-    err2 = head_velocity_d - head_velocity;     // 目標上端速度と実上端速度の偏差を計算
+    err2 = head_velocity_d - head_velocity;                  // 目標上端速度と実上端速度の偏差を計算
     fof_err2.calculate(err2);
     err2i.calculate(err2);
     fof_err2i.calculate(err2i.getOutput());
-    u = err1 * kp1 + fof_err2.getOutput() * kp2;                // P制御により制御入力を計算
-    
+    u = err1 * kp1 + fof_err2.getOutput() * kp2;  // P制御により制御入力を計算
+
     if (theta < CRL_PI * 1.0 / 4.0 || CRL_PI * 3.0 / 4.0 < theta) {  // クロールの姿勢θがPI/2付近以外でモータを停止
       u = 0;
     }
