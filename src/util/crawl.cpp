@@ -13,6 +13,8 @@
 #include "crawl.h"
 // エンコーダ読み取り
 #include "encoder.h"
+// カルマンフィルタ
+#include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
 int atexit(void (* /*func*/)()) { return 0; }
 
@@ -33,6 +35,7 @@ void setupUSB() {}
 #include <float.h>
 
 CrlRobot crl;
+KalmanFilter kf;
 
 #define FOF_ACC_T (1.0 / 25.0)
 #define ODOMETRY_T (1.0 / 50.0)
@@ -54,9 +57,9 @@ void CrlRobot::init() {
   Serial.begin(9600);     // UARTを9600bpsでセットアップ
   digitalWrite(13, LOW);  // LEDピン設定
 
-  resetEncoder();  // 累計回転数を初期化
-  initMotor();     // 累計回転数を初期化
-
+  resetEncoder();               // 累計回転数を初期化
+  initMotor();                  // 累計回転数を初期化
+  this->enable_kalman = false;  // センサヒュージョン方法を設定
   t2 = micros();
   t1 = t2;
 
@@ -121,7 +124,12 @@ void CrlRobot::updateState() {
   getResetEncoder();
   setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
-  calcTheta();
+
+  if (!this->enable_kalman) {
+    calcTheta();
+  } else {
+    calcThetaKalmanFilter();
+  }
   calcHeadVelocity();
 }
 
@@ -158,10 +166,20 @@ void CrlRobot::calcTheta() {
   this->theta = this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
   this->theta = this->theta + this->theta_dot_z * this->dt;
 }
+
+void CrlRobot::calcThetaKalmanFilter() {
+  float theta, gyro;
+  theta = M_PI / 2 - atan2(acc_y, acc_x);
+  gyro = this->theta_dot_z;
+  kf.update(theta, gyro, offset_gz * 0.00013316);
+  this->theta = kf.getTheta();
+}
+
 void CrlRobot::calcHeadVelocity() {
   ld_odometry.calculate((this->encoder_right + this->encoder_left) * this->kEtoMM / 2.0);
   this->head_velocity = CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta - M_PI / 2.0) - ld_odometry.getOutput();
 }
+
 // 各種アクセサ
 void CrlRobot::setDt(float _dt) {
   this->dt = _dt;
@@ -171,6 +189,7 @@ void CrlRobot::setDt(float _dt) {
   fof_acc_z.setDt(_dt);
   ld_odometry.setDt(_dt);
 }
+void CrlRobot::setKalman(bool enable_kalman) { this->enable_kalman = enable_kalman; }
 
 void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 
