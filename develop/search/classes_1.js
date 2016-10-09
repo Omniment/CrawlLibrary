@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['firtstorderfilter',['FirtstOrderFilter',['../a00002.html',1,'']]]
+  ['firstorderfilter',['FirstOrderFilter',['../a00002.html',1,'']]]
 ];
