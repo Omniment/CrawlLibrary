@@ -1,4 +1,4 @@
-Crawl	KEYWORD1
+crawl	KEYWORD1
 crl	KEYWORD1
 CrlRobot	KEYWORD1
 FirstOrderFilter	KEYWORD1
