@@ -29,7 +29,7 @@ int main() {
 
   crl.init();            // ロボットの初期化
   crl.setDt(dt);         // サンプリング時間を設定
-  crl.setKalman(false);  // カルマンフィルタ
+  crl.setKalman(false);  // センサヒュージョンの方法を設定
   while (1) {
     crl.realtimeLoop();                     // dt[s]ごとに以下ループを実行
     crl.updateState();                      // 各種センサ情報取得,モータ出力の更新
