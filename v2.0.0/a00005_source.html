@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>CrawlLibrary: src/crawl.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">CrawlLibrary
+   &#160;<span id="projectnumber">v2.0.0</span>
+   </div>
+   <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>関数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">crawl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef INCLUDED_Crawl_h</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define INCLUDED_Crawl_h</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00002.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00002.html">FirstOrderFilter</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">float</span> dt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">float</span> T;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">float</span> y;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="a00002.html#af137b50eae137694156e95568c757e79">FirstOrderFilter</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00002.html#ab575ef546dcd8e7c520a534c4ef2907a">setDt</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00002.html#aba03571cfdad041fcc5f6e8f291e1764">setT</a>(<span class="keywordtype">float</span> T);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00002.html#a87eda9e5da8bcecc1b049de05b996827">getOutput</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00002.html#a75e32a472613e732f4680837ac09d5bf">calculate</a>(<span class="keywordtype">float</span> x);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a00004.html">   75</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00004.html">LaggedDerivative</a> : <span class="keyword">public</span> <a class="code" href="a00002.html">FirstOrderFilter</a> {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">float</span> y;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00004.html#a681563ec0ea47a67e4a4a9adf4676029">calculate</a>(<span class="keywordtype">float</span> x);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00004.html#a4951823405edfb5863d6dfa0889478be">getOutput</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="a00003.html">  110</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00003.html">Integral</a> {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="a00003.html#adada7c8e32ab675b400415c091a2707d">Integral</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00003.html#a9e292082ff8149fa2eb48c1a405cd302">setDt</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00003.html#af5fc2fbc03c699521aa0af00504e9e6a">setOutput</a>(<span class="keywordtype">float</span> y);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00003.html#afad5d4ac69c7d1d774116ecb617d3ac6">setLimit</a>(<span class="keywordtype">float</span> limit_low, <span class="keywordtype">float</span> limit_high);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00003.html#ae8427adc7aba36a97c38712631172c39">calculate</a>(<span class="keywordtype">float</span> x);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00003.html#a053766eb17a421cb210ab2f7fe0f33d9">getOutput</a>();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordtype">float</span> y;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keywordtype">float</span> limit_low;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordtype">float</span> limit_high;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordtype">float</span> dt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="a00001.html">  181</a></span>&#160;<span class="keyword">class </span><a class="code" href="a00001.html">CrlRobot</a> {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a7fe815f51d700f97dcc47fb5693579b5">init</a>();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a253edffc77514f7017c760dd6b9c394f">realtimeLoop</a>();</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f">setDt</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a887ece7acd7f011e40e71c9aaca6b1ab">getThetaX</a>();</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a09ab9da460f79060ab3d82fdb4f7c0fa">getThetaY</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a09bc86cd741041291a68c5694fbe043e">getThetaZ</a>();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a22d25aa7c7eef8234f977639315b3e3d">getHeadVelocity</a>();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a2fc220c5a59262261fb277ab2204915b">getAccX</a>();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a3a2b252a6da800d1bbc27689f646394b">getAccY</a>();</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#abcd1b86562b2f93b17ca676f0abc6c64">getAccZ</a>();</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a686b59363b8245eff0933176dfe25646">getThetaDotX</a>();</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#afd4e3f8655f27458ffdec6afe2a38305">getThetaDotY</a>();</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#ac3538f93633b3ff5c99c59c66a3ebde0">getThetaDotZ</a>();</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a669ab1a482b88fb7e4cc38853d3ab117">getEncoderLeft</a>();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a978cc46d4282e86abc1ee3742d5b4d6e">getEncoderRight</a>();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#a0817f4df0bc9b8f55f960341f592c46a">getOdometryLeft</a>();</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="keywordtype">float</span> <a class="code" href="a00001.html#ac9bc25abe7102676ad7e8827892c0cb4">getOdometryRight</a>();</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a6938183d987090e6d2c30117862402e0">setMotorLeft</a>(<span class="keywordtype">float</span> motor_left);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#ae7afa8cbc9bfa0494392c9ce1f6c3d1a">setMotorRight</a>(<span class="keywordtype">float</span> motor_right);</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a1ba6e1c52ef385b5a1215b8ced0c3aa8">resetEncoderLeft</a>();</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#ad47312ddc1e644c5b20acd773e68dd81">resetEncoderRight</a>();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f">updateState</a>();</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <span class="keywordtype">float</span> dt;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  <span class="keywordtype">int</span> dt_us;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keywordtype">float</span> theta;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  <span class="keywordtype">float</span> head_velocity;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  <span class="keywordtype">float</span> acc_x;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  <span class="keywordtype">float</span> acc_y;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  <span class="keywordtype">float</span> acc_z;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keywordtype">float</span> theta_dot_x;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="keywordtype">float</span> theta_dot_y;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  <span class="keywordtype">float</span> theta_dot_z;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  <span class="keywordtype">float</span> offset_gx;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  <span class="keywordtype">float</span> offset_gy;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keywordtype">float</span> offset_gz;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  <span class="keywordtype">float</span> motor_left;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  <span class="keywordtype">float</span> motor_right;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  <span class="keywordtype">float</span> encoder_left;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  <span class="keywordtype">float</span> encoder_right;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> t1;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> t2;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> tt;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  <span class="keywordtype">float</span> kEtoMM;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  <span class="keywordtype">float</span> rate_theta;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  <a class="code" href="a00002.html">FirstOrderFilter</a> fof_acc_x;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  <a class="code" href="a00002.html">FirstOrderFilter</a> fof_acc_y;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  <a class="code" href="a00002.html">FirstOrderFilter</a> fof_acc_z;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <a class="code" href="a00004.html">LaggedDerivative</a> ld_odometry;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  <span class="keywordtype">void</span> calcTheta();</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <span class="keywordtype">void</span> makeTiming();</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;  <span class="keywordtype">void</span> calcState();</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  <span class="keywordtype">void</span> calcHeadVelocity();</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  <span class="keywordtype">void</span> initGyroOffset();</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="keywordtype">void</span> initTheta();</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;};</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="keyword">extern</span> <a class="code" href="a00001.html">CrlRobot</a> crl;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00001_html_a669ab1a482b88fb7e4cc38853d3ab117"><div class="ttname"><a href="a00001.html#a669ab1a482b88fb7e4cc38853d3ab117">CrlRobot::getEncoderLeft</a></div><div class="ttdeci">float getEncoderLeft()</div><div class="ttdoc">左エンコーダの値を取得する </div></div>
+<div class="ttc" id="a00001_html_a7a7911c74a440824b7d614a6424a6e9f"><div class="ttname"><a href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f">CrlRobot::setDt</a></div><div class="ttdeci">void setDt(float dt)</div><div class="ttdoc">ループ間隔を設定する </div></div>
+<div class="ttc" id="a00003_html_ae8427adc7aba36a97c38712631172c39"><div class="ttname"><a href="a00003.html#ae8427adc7aba36a97c38712631172c39">Integral::calculate</a></div><div class="ttdeci">void calculate(float x)</div><div class="ttdoc">入力から出力を計算する </div></div>
+<div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">Integral</a></div><div class="ttdoc">制限付き積分要素クラス </div><div class="ttdef"><b>Definition:</b> crawl.h:110</div></div>
+<div class="ttc" id="a00001_html"><div class="ttname"><a href="a00001.html">CrlRobot</a></div><div class="ttdoc">クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス. </div><div class="ttdef"><b>Definition:</b> crawl.h:181</div></div>
+<div class="ttc" id="a00001_html_a7fe815f51d700f97dcc47fb5693579b5"><div class="ttname"><a href="a00001.html#a7fe815f51d700f97dcc47fb5693579b5">CrlRobot::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">クロールの初期化 </div></div>
+<div class="ttc" id="a00001_html_a3a2b252a6da800d1bbc27689f646394b"><div class="ttname"><a href="a00001.html#a3a2b252a6da800d1bbc27689f646394b">CrlRobot::getAccY</a></div><div class="ttdeci">float getAccY()</div><div class="ttdoc">Y軸方向の加速度を取得する </div></div>
+<div class="ttc" id="a00001_html_a6938183d987090e6d2c30117862402e0"><div class="ttname"><a href="a00001.html#a6938183d987090e6d2c30117862402e0">CrlRobot::setMotorLeft</a></div><div class="ttdeci">void setMotorLeft(float motor_left)</div><div class="ttdoc">左モーターの出力を設定 </div></div>
+<div class="ttc" id="a00001_html_afd4e3f8655f27458ffdec6afe2a38305"><div class="ttname"><a href="a00001.html#afd4e3f8655f27458ffdec6afe2a38305">CrlRobot::getThetaDotY</a></div><div class="ttdeci">float getThetaDotY()</div><div class="ttdoc">Y軸周りの角速度を取得する </div></div>
+<div class="ttc" id="a00003_html_af5fc2fbc03c699521aa0af00504e9e6a"><div class="ttname"><a href="a00003.html#af5fc2fbc03c699521aa0af00504e9e6a">Integral::setOutput</a></div><div class="ttdeci">void setOutput(float y)</div><div class="ttdoc">出力される積分値を設定する </div></div>
+<div class="ttc" id="a00004_html_a681563ec0ea47a67e4a4a9adf4676029"><div class="ttname"><a href="a00004.html#a681563ec0ea47a67e4a4a9adf4676029">LaggedDerivative::calculate</a></div><div class="ttdeci">float calculate(float x)</div><div class="ttdoc">入力から出力を計算する </div></div>
+<div class="ttc" id="a00001_html_a978cc46d4282e86abc1ee3742d5b4d6e"><div class="ttname"><a href="a00001.html#a978cc46d4282e86abc1ee3742d5b4d6e">CrlRobot::getEncoderRight</a></div><div class="ttdeci">float getEncoderRight()</div><div class="ttdoc">右エンコーダの値を取得する </div></div>
+<div class="ttc" id="a00002_html_ab575ef546dcd8e7c520a534c4ef2907a"><div class="ttname"><a href="a00002.html#ab575ef546dcd8e7c520a534c4ef2907a">FirstOrderFilter::setDt</a></div><div class="ttdeci">void setDt(float dt)</div><div class="ttdoc">サンプリングタイムを設定する </div></div>
+<div class="ttc" id="a00002_html_af137b50eae137694156e95568c757e79"><div class="ttname"><a href="a00002.html#af137b50eae137694156e95568c757e79">FirstOrderFilter::FirstOrderFilter</a></div><div class="ttdeci">FirstOrderFilter()</div><div class="ttdoc">コンストラクタ </div></div>
+<div class="ttc" id="a00001_html_a0817f4df0bc9b8f55f960341f592c46a"><div class="ttname"><a href="a00001.html#a0817f4df0bc9b8f55f960341f592c46a">CrlRobot::getOdometryLeft</a></div><div class="ttdeci">float getOdometryLeft()</div><div class="ttdoc">左クローラの進んだ距離の値を取得する </div></div>
+<div class="ttc" id="a00001_html_ad47312ddc1e644c5b20acd773e68dd81"><div class="ttname"><a href="a00001.html#ad47312ddc1e644c5b20acd773e68dd81">CrlRobot::resetEncoderRight</a></div><div class="ttdeci">void resetEncoderRight()</div><div class="ttdoc">右エンコーダの累積値を0に設定する </div></div>
+<div class="ttc" id="a00001_html_a1ba6e1c52ef385b5a1215b8ced0c3aa8"><div class="ttname"><a href="a00001.html#a1ba6e1c52ef385b5a1215b8ced0c3aa8">CrlRobot::resetEncoderLeft</a></div><div class="ttdeci">void resetEncoderLeft()</div><div class="ttdoc">左エンコーダの累積値を0に設定する </div></div>
+<div class="ttc" id="a00001_html_a61fffbc4290a6a31d9abb40c40980d9f"><div class="ttname"><a href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f">CrlRobot::updateState</a></div><div class="ttdeci">void updateState()</div><div class="ttdoc">クロールの状態を更新 </div></div>
+<div class="ttc" id="a00001_html_ae7afa8cbc9bfa0494392c9ce1f6c3d1a"><div class="ttname"><a href="a00001.html#ae7afa8cbc9bfa0494392c9ce1f6c3d1a">CrlRobot::setMotorRight</a></div><div class="ttdeci">void setMotorRight(float motor_right)</div><div class="ttdoc">右モーターの出力を設定 </div></div>
+<div class="ttc" id="a00001_html_a686b59363b8245eff0933176dfe25646"><div class="ttname"><a href="a00001.html#a686b59363b8245eff0933176dfe25646">CrlRobot::getThetaDotX</a></div><div class="ttdeci">float getThetaDotX()</div><div class="ttdoc">X軸周りの角速度を取得する </div></div>
+<div class="ttc" id="a00001_html_abcd1b86562b2f93b17ca676f0abc6c64"><div class="ttname"><a href="a00001.html#abcd1b86562b2f93b17ca676f0abc6c64">CrlRobot::getAccZ</a></div><div class="ttdeci">float getAccZ()</div><div class="ttdoc">Z軸方向の加速度を取得する </div></div>
+<div class="ttc" id="a00002_html_a87eda9e5da8bcecc1b049de05b996827"><div class="ttname"><a href="a00002.html#a87eda9e5da8bcecc1b049de05b996827">FirstOrderFilter::getOutput</a></div><div class="ttdeci">float getOutput()</div><div class="ttdoc">出力値を取得する </div></div>
+<div class="ttc" id="a00001_html_ac9bc25abe7102676ad7e8827892c0cb4"><div class="ttname"><a href="a00001.html#ac9bc25abe7102676ad7e8827892c0cb4">CrlRobot::getOdometryRight</a></div><div class="ttdeci">float getOdometryRight()</div><div class="ttdoc">右クローラの進んだ距離を取得する </div></div>
+<div class="ttc" id="a00001_html_a253edffc77514f7017c760dd6b9c394f"><div class="ttname"><a href="a00001.html#a253edffc77514f7017c760dd6b9c394f">CrlRobot::realtimeLoop</a></div><div class="ttdeci">void realtimeLoop()</div><div class="ttdoc">ループが一定間隔になるよう調節する </div></div>
+<div class="ttc" id="a00003_html_a9e292082ff8149fa2eb48c1a405cd302"><div class="ttname"><a href="a00003.html#a9e292082ff8149fa2eb48c1a405cd302">Integral::setDt</a></div><div class="ttdeci">void setDt(float dt)</div><div class="ttdoc">サンプリングタイムを設定する </div></div>
+<div class="ttc" id="a00001_html_a22d25aa7c7eef8234f977639315b3e3d"><div class="ttname"><a href="a00001.html#a22d25aa7c7eef8234f977639315b3e3d">CrlRobot::getHeadVelocity</a></div><div class="ttdeci">float getHeadVelocity()</div><div class="ttdoc">倒立時のクロール上端の速度を取得する </div></div>
+<div class="ttc" id="a00001_html_ac3538f93633b3ff5c99c59c66a3ebde0"><div class="ttname"><a href="a00001.html#ac3538f93633b3ff5c99c59c66a3ebde0">CrlRobot::getThetaDotZ</a></div><div class="ttdeci">float getThetaDotZ()</div><div class="ttdoc">Z軸周りの角速度を取得する </div></div>
+<div class="ttc" id="a00003_html_afad5d4ac69c7d1d774116ecb617d3ac6"><div class="ttname"><a href="a00003.html#afad5d4ac69c7d1d774116ecb617d3ac6">Integral::setLimit</a></div><div class="ttdeci">void setLimit(float limit_low, float limit_high)</div><div class="ttdoc">積分の制限値を設定する </div></div>
+<div class="ttc" id="a00001_html_a09bc86cd741041291a68c5694fbe043e"><div class="ttname"><a href="a00001.html#a09bc86cd741041291a68c5694fbe043e">CrlRobot::getThetaZ</a></div><div class="ttdeci">float getThetaZ()</div><div class="ttdoc">Z軸周りの姿勢角度を取得する </div></div>
+<div class="ttc" id="a00003_html_adada7c8e32ab675b400415c091a2707d"><div class="ttname"><a href="a00003.html#adada7c8e32ab675b400415c091a2707d">Integral::Integral</a></div><div class="ttdeci">Integral()</div><div class="ttdoc">コンストラクタ </div></div>
+<div class="ttc" id="a00001_html_a09ab9da460f79060ab3d82fdb4f7c0fa"><div class="ttname"><a href="a00001.html#a09ab9da460f79060ab3d82fdb4f7c0fa">CrlRobot::getThetaY</a></div><div class="ttdeci">float getThetaY()</div><div class="ttdoc">Y軸周りの姿勢角度を取得する </div></div>
+<div class="ttc" id="a00002_html_aba03571cfdad041fcc5f6e8f291e1764"><div class="ttname"><a href="a00002.html#aba03571cfdad041fcc5f6e8f291e1764">FirstOrderFilter::setT</a></div><div class="ttdeci">void setT(float T)</div><div class="ttdoc">時定数を設定する </div></div>
+<div class="ttc" id="a00001_html_a887ece7acd7f011e40e71c9aaca6b1ab"><div class="ttname"><a href="a00001.html#a887ece7acd7f011e40e71c9aaca6b1ab">CrlRobot::getThetaX</a></div><div class="ttdeci">float getThetaX()</div><div class="ttdoc">X軸周りの姿勢角度を取得する </div></div>
+<div class="ttc" id="a00002_html_a75e32a472613e732f4680837ac09d5bf"><div class="ttname"><a href="a00002.html#a75e32a472613e732f4680837ac09d5bf">FirstOrderFilter::calculate</a></div><div class="ttdeci">float calculate(float x)</div><div class="ttdoc">入力から出力を計算する </div></div>
+<div class="ttc" id="a00004_html_a4951823405edfb5863d6dfa0889478be"><div class="ttname"><a href="a00004.html#a4951823405edfb5863d6dfa0889478be">LaggedDerivative::getOutput</a></div><div class="ttdeci">float getOutput()</div><div class="ttdoc">不完全微分した値を取得する </div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">LaggedDerivative</a></div><div class="ttdoc">不完全微分要素クラス. </div><div class="ttdef"><b>Definition:</b> crawl.h:75</div></div>
+<div class="ttc" id="a00002_html"><div class="ttname"><a href="a00002.html">FirstOrderFilter</a></div><div class="ttdoc">一次遅れフィルタークラス. </div><div class="ttdef"><b>Definition:</b> crawl.h:17</div></div>
+<div class="ttc" id="a00001_html_a2fc220c5a59262261fb277ab2204915b"><div class="ttname"><a href="a00001.html#a2fc220c5a59262261fb277ab2204915b">CrlRobot::getAccX</a></div><div class="ttdeci">float getAccX()</div><div class="ttdoc">X軸方向の加速度を取得する </div></div>
+<div class="ttc" id="a00003_html_a053766eb17a421cb210ab2f7fe0f33d9"><div class="ttname"><a href="a00003.html#a053766eb17a421cb210ab2f7fe0f33d9">Integral::getOutput</a></div><div class="ttdeci">float getOutput()</div><div class="ttdoc">制限付き積分した値を取得する </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2016年10月09日(日) 14時30分03秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
