@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['init',['init',['../a00001.html#a7fe815f51d700f97dcc47fb5693579b5',1,'CrlRobot']]],
-  ['initattitudesensor',['initAttitudeSensor',['../a00002.html#ab8521150da90887a112c73824cc2047b',1,'initAttitudeSensor():&#160;attitude_sensor.cpp'],['../a00003.html#ab8521150da90887a112c73824cc2047b',1,'initAttitudeSensor():&#160;attitude_sensor.cpp']]],
-  ['initmotor',['initMotor',['../a00007.html#a72af49fb7191c300fa1a1a8ec5c91b13',1,'initMotor():&#160;crawl_drive.cpp'],['../a00008.html#a72af49fb7191c300fa1a1a8ec5c91b13',1,'initMotor():&#160;crawl_drive.cpp']]],
-  ['initvariant',['initVariant',['../a00005.html#a8fdabcf3c9eded8372919c5bbb8ad1d4',1,'Crawl.cpp']]]
+  ['encoder_2ecpp',['encoder.cpp',['../a00011.html',1,'']]],
+  ['encoder_2eh',['encoder.h',['../a00012.html',1,'']]],
+  ['encoder_5fleft',['encoder_left',['../a00001.html#a404db9ae89761759c7d27a0b1a0c814a',1,'CrlRobot']]],
+  ['encoder_5fright',['encoder_right',['../a00001.html#af1404be888e8451365f2a26d7ac53c34',1,'CrlRobot']]]
 ];

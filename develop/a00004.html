@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: common.h ファイル</title>
+<title>CrawlLibrary: LaggedDerivative クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">2016-10-09_13:04:14</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -61,8 +61,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
+      <li><a href="classes.html"><span>クラス索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,27 +81,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="a00017.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
-<div class="title">common.h ファイル</div>  </div>
+<div class="title">LaggedDerivative クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00003_source.html">attitude_sensor.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00008_source.html">crawl_drive.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00006_source.html">Crawl.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00010_source.html">encoder.h</a>&quot;</code><br />
+
+<p>不完全微分要素クラス.  
+ <a href="a00004.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00005_source.html">crawl.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a681563ec0ea47a67e4a4a9adf4676029"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a681563ec0ea47a67e4a4a9adf4676029">calculate</a> (float x)</td></tr>
+<tr class="memdesc:a681563ec0ea47a67e4a4a9adf4676029"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力から出力を計算する  <a href="#a681563ec0ea47a67e4a4a9adf4676029">[詳解]</a><br /></td></tr>
+<tr class="separator:a681563ec0ea47a67e4a4a9adf4676029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4951823405edfb5863d6dfa0889478be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a4951823405edfb5863d6dfa0889478be">getOutput</a> ()</td></tr>
+<tr class="memdesc:a4951823405edfb5863d6dfa0889478be"><td class="mdescLeft">&#160;</td><td class="mdescRight">不完全微分した値を取得する  <a href="#a4951823405edfb5863d6dfa0889478be">[詳解]</a><br /></td></tr>
+<tr class="separator:a4951823405edfb5863d6dfa0889478be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="a00002.html">FirtstOrderFilter</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a2043cf206c5bad09df8a0b108c3951ee inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a2043cf206c5bad09df8a0b108c3951ee">FirtstOrderFilter</a> ()</td></tr>
+<tr class="memdesc:a2043cf206c5bad09df8a0b108c3951ee inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="#a2043cf206c5bad09df8a0b108c3951ee">[詳解]</a><br /></td></tr>
+<tr class="separator:a2043cf206c5bad09df8a0b108c3951ee inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34ea769032451919528826beabf737b inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#ae34ea769032451919528826beabf737b">setDt</a> (float <a class="el" href="a00002.html#ac8869dc09939d73da1602779b17191fe">dt</a>)</td></tr>
+<tr class="memdesc:ae34ea769032451919528826beabf737b inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">サンプリングタイムを設定する  <a href="#ae34ea769032451919528826beabf737b">[詳解]</a><br /></td></tr>
+<tr class="separator:ae34ea769032451919528826beabf737b inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5efdff11b8f7c83e59443ba305097515 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a5efdff11b8f7c83e59443ba305097515">setT</a> (float <a class="el" href="a00002.html#a711513d562b6770b4621415a2ecdf585">T</a>)</td></tr>
+<tr class="memdesc:a5efdff11b8f7c83e59443ba305097515 inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">時定数を設定する  <a href="#a5efdff11b8f7c83e59443ba305097515">[詳解]</a><br /></td></tr>
+<tr class="separator:a5efdff11b8f7c83e59443ba305097515 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fd9a11fff6557595da9870e70b17fce inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a3fd9a11fff6557595da9870e70b17fce">getOutput</a> ()</td></tr>
+<tr class="memdesc:a3fd9a11fff6557595da9870e70b17fce inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力値を取得する  <a href="#a3fd9a11fff6557595da9870e70b17fce">[詳解]</a><br /></td></tr>
+<tr class="separator:a3fd9a11fff6557595da9870e70b17fce inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ebc96f94fdc5ce3dbe08653faff185 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a60ebc96f94fdc5ce3dbe08653faff185">calculate</a> (float x)</td></tr>
+<tr class="memdesc:a60ebc96f94fdc5ce3dbe08653faff185 inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力から出力を計算する  <a href="#a60ebc96f94fdc5ce3dbe08653faff185">[詳解]</a><br /></td></tr>
+<tr class="separator:a60ebc96f94fdc5ce3dbe08653faff185 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00002"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00002')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="a00002.html">FirtstOrderFilter</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:ac8869dc09939d73da1602779b17191fe inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#ac8869dc09939d73da1602779b17191fe">dt</a></td></tr>
+<tr class="separator:ac8869dc09939d73da1602779b17191fe inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711513d562b6770b4621415a2ecdf585 inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a711513d562b6770b4621415a2ecdf585">T</a></td></tr>
+<tr class="separator:a711513d562b6770b4621415a2ecdf585 inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787026af5bcf59ca755c416ea884ae93 inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a787026af5bcf59ca755c416ea884ae93">y</a></td></tr>
+<tr class="separator:a787026af5bcf59ca755c416ea884ae93 inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>不完全微分要素クラス. </p>
+<p>一次遅れフィルタークラスを継承 </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a681563ec0ea47a67e4a4a9adf4676029"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LaggedDerivative::calculate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>入力から出力を計算する </p>
+<p>ルンゲクッタ法により4次の精度で不完全微分を計算します. </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>入力値 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd>ループ中では一回だけ呼び出すようにしてください. </dd></dl>
+
 </div>
-<p><a href="a00004_source.html">[ソースコード]</a></p>
+</div>
+<a class="anchor" id="a4951823405edfb5863d6dfa0889478be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LaggedDerivative::getOutput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>不完全微分した値を取得する </p>
+<p>不完全微分した値を取得します. </p><dl class="section return"><dt>戻り値</dt><dd>不完全微分した値 </dd></dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>src/<a class="el" href="a00005_source.html">crawl.h</a></li>
+<li>src/util/<a class="el" href="a00008.html">crawl.cpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年09月16日(金) 22時55分22秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月09日(日) 13時04分14秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

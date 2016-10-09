@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['right_5fencoder',['right_encoder',['../a00009.html#ab8954a58d8737b9492e053a3f2f4df98',1,'right_encoder():&#160;encoder.cpp'],['../a00010.html#ab8954a58d8737b9492e053a3f2f4df98',1,'right_encoder():&#160;encoder.cpp']]]
+  ['encoder_5fleft',['encoder_left',['../a00001.html#a404db9ae89761759c7d27a0b1a0c814a',1,'CrlRobot']]],
+  ['encoder_5fright',['encoder_right',['../a00001.html#af1404be888e8451365f2a26d7ac53c34',1,'CrlRobot']]]
 ];

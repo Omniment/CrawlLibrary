@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: Crawl.cpp ファイル</title>
+<title>CrawlLibrary: src/crawl.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">2016-10-09_13:04:14</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ファイル</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>マクロ定義</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,79 +86,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">関数</a> &#124;
+<a href="#nested-classes">クラス</a> &#124;
 <a href="#var-members">変数</a>  </div>
   <div class="headertitle">
-<div class="title">Crawl.cpp ファイル</div>  </div>
+<div class="title">crawl.h ファイル</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ. 制御に必要とされる一次遅れフィルターや不完全微分  
+<a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00004_source.html">common.h</a>&quot;</code><br />
-<code>#include &lt;Wire.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-関数</h2></td></tr>
-<tr class="memitem:a5a485781a43898e8594302dc3be9abbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5a485781a43898e8594302dc3be9abbf">atexit</a> (void(*)())</td></tr>
-<tr class="separator:a5a485781a43898e8594302dc3be9abbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fdabcf3c9eded8372919c5bbb8ad1d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8fdabcf3c9eded8372919c5bbb8ad1d4">initVariant</a> () __attribute__((weak))</td></tr>
-<tr class="separator:a8fdabcf3c9eded8372919c5bbb8ad1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2398b6d34252529234545e2f88ea0147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2398b6d34252529234545e2f88ea0147">setupUSB</a> () __attribute__((weak))</td></tr>
-<tr class="separator:a2398b6d34252529234545e2f88ea0147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</div>
+<p><a href="a00005_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">FirtstOrderFilter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">一次遅れフィルタークラス.  <a href="a00002.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">LaggedDerivative</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">不完全微分要素クラス.  <a href="a00004.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">Integral</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">制限付き積分要素クラス  <a href="a00003.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html">CrlRobot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.  <a href="a00001.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 変数</h2></td></tr>
 <tr class="memitem:a6236962ef37df90bd7ffb846c2b94587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00001.html">CrlRobot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a6236962ef37df90bd7ffb846c2b94587">crl</a></td></tr>
 <tr class="separator:a6236962ef37df90bd7ffb846c2b94587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a5a485781a43898e8594302dc3be9abbf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int atexit </td>
-          <td>(</td>
-          <td class="paramtype">void(*)()&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8fdabcf3c9eded8372919c5bbb8ad1d4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initVariant </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2398b6d34252529234545e2f88ea0147"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void setupUSB </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">変数詳解</h2>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ. 制御に必要とされる一次遅れフィルターや不完全微分 </p>
+</div><h2 class="groupheader">変数詳解</h2>
 <a class="anchor" id="a6236962ef37df90bd7ffb846c2b94587"></a>
 <div class="memitem">
 <div class="memproto">
@@ -168,13 +131,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
         </tr>
       </table>
 </div><div class="memdoc">
+<p>CrlRobotのインスタンス </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年09月16日(金) 22時55分22秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月09日(日) 13時04分14秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

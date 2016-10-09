@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['set_5fdt',['set_dt',['../a00001.html#a40cafa271ea413b51b8f77ec65f799af',1,'CrlRobot']]],
-  ['set_5fmotor_5fl',['set_motor_l',['../a00001.html#a33a7aa28ef44761ee44531981feab3a7',1,'CrlRobot']]],
-  ['set_5fmotor_5fr',['set_motor_r',['../a00001.html#a1be0e69e2c5198e23d439b4c2b94c634',1,'CrlRobot']]],
-  ['setmoterpower',['setMoterPower',['../a00007.html#a8c5d0897e0c181f705c507af5fc305d7',1,'setMoterPower(int left_power, int right_power):&#160;crawl_drive.cpp'],['../a00008.html#a8c5d0897e0c181f705c507af5fc305d7',1,'setMoterPower(int left_power, int right_power):&#160;crawl_drive.cpp']]],
-  ['setupusb',['setupUSB',['../a00005.html#a2398b6d34252529234545e2f88ea0147',1,'Crawl.cpp']]],
-  ['stopmotor',['stopMotor',['../a00007.html#ac485965697295992f2599633a3f5126a',1,'stopMotor():&#160;crawl_drive.cpp'],['../a00008.html#ac485965697295992f2599633a3f5126a',1,'stopMotor():&#160;crawl_drive.cpp']]]
+  ['init',['init',['../a00001.html#a7fe815f51d700f97dcc47fb5693579b5',1,'CrlRobot']]],
+  ['initattitudesensor',['initAttitudeSensor',['../a00006.html#ab8521150da90887a112c73824cc2047b',1,'initAttitudeSensor():&#160;attitude_sensor.cpp'],['../a00007.html#ab8521150da90887a112c73824cc2047b',1,'initAttitudeSensor():&#160;attitude_sensor.cpp']]],
+  ['initgyrooffset',['initGyroOffset',['../a00001.html#a3e625f0747b6c654ebf4d3d4219a88f8',1,'CrlRobot']]],
+  ['initmotor',['initMotor',['../a00009.html#a72af49fb7191c300fa1a1a8ec5c91b13',1,'initMotor():&#160;crawl_drive.cpp'],['../a00010.html#a72af49fb7191c300fa1a1a8ec5c91b13',1,'initMotor():&#160;crawl_drive.cpp']]],
+  ['inittheta',['initTheta',['../a00001.html#a190d209f30c4825ed6ffdce3535ae391',1,'CrlRobot']]],
+  ['initvariant',['initVariant',['../a00008.html#a8fdabcf3c9eded8372919c5bbb8ad1d4',1,'crawl.cpp']]],
+  ['integral',['Integral',['../a00003.html#adada7c8e32ab675b400415c091a2707d',1,'Integral']]]
 ];
