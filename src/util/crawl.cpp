@@ -231,11 +231,11 @@ float CrlRobot::getOdometryLeft() { return this->encoder_left * this->kEtoMM; }
 
 float CrlRobot::getOdometryRight() { return this->encoder_right * this->kEtoMM; }
 
-FirtstOrderFilter::FirtstOrderFilter() : y(0), T(1), dt(0.001) {}
+FirstOrderFilter::FirstOrderFilter() : y(0), T(1), dt(0.001) {}
 
-void FirtstOrderFilter::setDt(float dt) { this->dt = dt; }
+void FirstOrderFilter::setDt(float dt) { this->dt = dt; }
 
-void FirtstOrderFilter::setT(float T) {
+void FirstOrderFilter::setT(float T) {
   if (0.0 < T) {
     this->T = T;
   } else {
@@ -243,7 +243,7 @@ void FirtstOrderFilter::setT(float T) {
   }
 }
 
-float FirtstOrderFilter::calculate(float x) {
+float FirstOrderFilter::calculate(float x) {
   float k, k0, k1, k2, k3;
   k0 = (x - y) / T;
   k1 = (x - (y + k0 * dt * 0.5)) / T;
@@ -252,11 +252,11 @@ float FirtstOrderFilter::calculate(float x) {
   k = (k0 + 2 * k1 + 2 * k2 + k3) / 6;
   y = y + k * dt;
 }
-float FirtstOrderFilter::getOutput() { return y; }
+float FirstOrderFilter::getOutput() { return y; }
 
 float LaggedDerivative::calculate(float x) {
-  FirtstOrderFilter::calculate(x);
-  this->y = (x - FirtstOrderFilter::getOutput()) / FirtstOrderFilter::T;
+  FirstOrderFilter::calculate(x);
+  this->y = (x - FirstOrderFilter::getOutput()) / FirstOrderFilter::T;
 }
 float LaggedDerivative::getOutput() { return this->y; }
 

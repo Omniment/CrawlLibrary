@@ -30,6 +30,48 @@ build() {
 }
 
 github_repo=$1
+
+if [ "$github_repo" == "" ]
+then
+    cyan_echo "The URL of a GitHub repository is not given. Nothing to do."
+    exit 0
+fi
+
+## Update remote repo
+git remote remove origin
+git remote add origin "$github_repo"
+
+## Clone 'gh-pages' branch
+git config --global user.email "dummy@omniment.co.jp"
+git config --global user.name "Omniment"
+git clone -b gh-pages "$github_repo" gh-pages
+
+##
+## Build documentation for developers
+##
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime # Change the current time zone
+
+green_echo "Building documentation for developers..."
+git checkout master
+git pull origin master
+build "doc/develop.doxyfile" "$(date '+%Y-%m-%d_%H:%M:%S')"
+
+green_echo "Adding documentation to gh-pages..."
+cd gh-pages/
+
+if [ -d "./develop" ]; then git rm -rf "./develop"; fi
+
+mv "../doc/develop/html" "./develop"
+
+git add "./develop"
+git commit -m "Add documentation 'develop'"
+
+cd ..
+
+##
+## Build documentation for users
+##
+git fetch --tags
 tags=$(git tag) # all tags at the current branch
 
 if [ "$tags" == "" ]
@@ -37,11 +79,6 @@ then
     cyan_echo "[Skip] No tags are found at the current branch."
     cyan_echo "       Documentation won't be updated."
 else
-    git config --global user.email "dummy@omniment.co.jp"
-    git config --global user.name "Omniment"
-    git clone -b gh-pages "$github_repo" gh-pages
-
-    updated_flag=0 # 1 if new document is added.
     for version in $tags
     do
         if [ -d "./gh-pages/$version" ]
@@ -51,35 +88,26 @@ else
             green_echo "Checkout '$version'..."
             git checkout "refs/tags/$version"
 
-            green_echo "Building document '$version' for users..."
+            green_echo "Building documentation '$version' for users..."
             build "doc/user.doxyfile" "$version"
-
-            green_echo "Building document '$version' for developers..."
-            build "doc/develop.doxyfile" "$version"
 
             green_echo "Adding documentation to gh-pages..."
             cd gh-pages/
 
-            if [ -d "./develop" ]; then git rm -rf "./develop"; fi
-            if [ -d "./latest"  ]; then git rm -rf "./latest"; fi
+            if [ -e "./latest" ]; then git rm -rf "./latest"; fi
 
-            mv "../doc/develop/html" "./develop"
             mv "../doc/user/html" "./$version"
-            cp -r "./$version" "./latest"
+            ln -sf "./$version" "./latest"
 
-            git add "./develop" "./$version" "./latest"
-            git commit -m "Add documentation $version"
+            git add "./$version" "./latest"
+            git commit -m "Add documentation '$version'"
 
             cd ..
-
-            updated_flag=1
         fi
     done
-
-    ## Push documents if updated.
-    if [ $updated_flag -eq 1 ]; then
-        green_echo "Publishing documentation..."
-        cd gh-pages/
-        git push origin gh-pages:gh-pages
-    fi
 fi
+
+## Upload built documents.
+green_echo "Publishing documentation..."
+cd gh-pages/
+git push origin gh-pages:gh-pages || :
