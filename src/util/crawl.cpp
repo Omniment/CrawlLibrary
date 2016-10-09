@@ -57,9 +57,9 @@ void CrlRobot::init() {
   Serial.begin(9600);     // UARTを9600bpsでセットアップ
   digitalWrite(13, LOW);  // LEDピン設定
 
-  resetEncoder();  // 累計回転数を初期化
-  initMotor();     // 累計回転数を初期化
-  this->enable_kalman=false;    // センサヒュージョン方法を設定
+  resetEncoder();               // 累計回転数を初期化
+  initMotor();                  // 累計回転数を初期化
+  this->enable_kalman = false;  // センサヒュージョン方法を設定
   t2 = micros();
   t1 = t2;
 
@@ -124,14 +124,12 @@ void CrlRobot::updateState() {
   getResetEncoder();
   setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
-  
-  if(!this->enable_kalman)
-  {
+
+  if (!this->enable_kalman) {
     calcTheta();
-   }
-   else{
-     calcThetaKalmanFilter();
-   }
+  } else {
+    calcThetaKalmanFilter();
+  }
   calcHeadVelocity();
 }
 
@@ -191,7 +189,7 @@ void CrlRobot::setDt(float _dt) {
   fof_acc_z.setDt(_dt);
   ld_odometry.setDt(_dt);
 }
-void CrlRobot::setKalman(bool enable_kalman){this->enable_kalman=enable_kalman;}
+void CrlRobot::setKalman(bool enable_kalman) { this->enable_kalman = enable_kalman; }
 
 void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 

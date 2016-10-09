@@ -27,8 +27,8 @@ int main() {
   fof_err2i.setDt(dt);
   fof_err2i.setT(1.0 / 5);
 
-  crl.init();     // ロボットの初期化
-  crl.setDt(dt);  // サンプリング時間を設定
+  crl.init();            // ロボットの初期化
+  crl.setDt(dt);         // サンプリング時間を設定
   crl.setKalman(false);  // カルマンフィルタ
   while (1) {
     crl.realtimeLoop();                     // dt[s]ごとに以下ループを実行
