@@ -49,29 +49,24 @@ git clone -b gh-pages "$github_repo" gh-pages
 ##
 ## Build documentation for developers
 ##
-branch=$(git branch | grep '^\*' | sed 's/^\* //')
-if [ "$branch" != "master" ]
-then
-    cyan_echo "[Skip] The current branch is '$branch', not 'master'"
-    cyan_echo "       Documentation (develop) won't be updated."
-else
-    ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime Change time zone
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime # Change the current time zone
 
-    green_echo "Building documentation for developers..."
-    build "doc/develop.doxyfile" "$(date '+%Y-%m-%d_%H:%M:%S')"
+green_echo "Building documentation for developers..."
+git checkout master
+git pull origin master
+build "doc/develop.doxyfile" "$(date '+%Y-%m-%d_%H:%M:%S')"
 
-    green_echo "Adding documentation to gh-pages..."
-    cd gh-pages/
+green_echo "Adding documentation to gh-pages..."
+cd gh-pages/
 
-    if [ -d "./develop" ]; then git rm -rf "./develop"; fi
+if [ -d "./develop" ]; then git rm -rf "./develop"; fi
 
-    mv "../doc/develop/html" "./develop"
+mv "../doc/develop/html" "./develop"
 
-    git add "./develop"
-    git commit -m "Add documentation 'develop'"
+git add "./develop"
+git commit -m "Add documentation 'develop'"
 
-    cd ..
-fi
+cd ..
 
 ##
 ## Build documentation for users
