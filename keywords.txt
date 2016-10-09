@@ -9,7 +9,7 @@ setDt	KEYWORD2
 setT	KEYWORD2
 calculate	KEYWORD2
 getOutput	KEYWORD2
-setLimit KEYWORD2
+setLimit	KEYWORD2
 getThetaX	KEYWORD2
 getThetaY	KEYWORD2
 getThetaZ	KEYWORD2
