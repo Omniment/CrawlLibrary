@@ -34,32 +34,16 @@ KalmanFilter::KalmanFilter() {
 }
 
 void KalmanFilter::add(float* A, float* B, int m, int n, float* C) {
-  // A = input matrix (m x n)
-  // B = input matrix (m x n)
-  // m = number of rows in A = number of rows in B
-  // n = number of columns in A = number of columns in B
-  // C = output matrix = A + B (m x n)
   int i, j;
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) C[n * i + j] = A[n * i + j] + B[n * i + j];
 }
 void KalmanFilter::subtract(float* A, float* B, int m, int n, float* C) {
-  // A = input matrix (m x n)
-  // B = input matrix (m x n)
-  // m = number of rows in A = number of rows in B
-  // n = number of columns in A = number of columns in B
-  // C = output matrix = A - B (m x n)
   int i, j;
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) C[n * i + j] = A[n * i + j] - B[n * i + j];
 }
 void KalmanFilter::multiply(float* A, float* B, int m, int p, int n, float* C) {
-  // A = input matrix (m x p)
-  // B = input matrix (p x n)
-  // m = number of rows in A
-  // p = number of columns in A = number of rows in B
-  // n = number of columns in B
-  // C = output matrix = A * B (m x n)
   int i, j, k;
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) {
@@ -68,30 +52,16 @@ void KalmanFilter::multiply(float* A, float* B, int m, int p, int n, float* C) {
     }
 }
 void KalmanFilter::multiply3(float* A, float* B, float* C, int m, int p, int r, int n, float* D) {
-  // A = input matrix (m x p)
-  // B = input matrix (p x r)
-  // C = input matrix (r x n)
-  // m = number of rows in A
-  // p = number of columns in A = number of rows in B
-  // r = number of columns in B = number of rows in C
-  // n = number of columns in C
-  // C = output matrix = A * B * C (m x n)
   float AB[m][r];
   multiply((float*)A, (float*)B, m, p, r, (float*)AB);
   multiply((float*)AB, (float*)C, m, r, n, (float*)D);
 }
 void KalmanFilter::transpose(float* A, int m, int n, float* B) {
-  // A = input matrix (m x n)
-  // m = number of rows in A
-  // n = number of columns in A
-  // B = output matrix = transpose of A (n x m)
   int i, j;
   for (i = 0; i < m; i++)
     for (j = 0; j < n; j++) B[m * j + i] = A[n * i + j];
 }
 void KalmanFilter::inverse2d(float* A, float* B) {
-  // A = input matrix (2 x 2)
-  // B = inverted matrix (2 x 2)
   float det = A[0] * A[3] - A[1] * A[2];
   B[0] = A[3] / det;
   B[1] = -A[1] / det;
