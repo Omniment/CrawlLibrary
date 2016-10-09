@@ -59,7 +59,7 @@ void CrlRobot::init() {
 
   resetEncoder();  // 累計回転数を初期化
   initMotor();     // 累計回転数を初期化
-
+  this->enable_kalman=false;    // センサヒュージョン方法を設定
   t2 = micros();
   t1 = t2;
 
@@ -124,10 +124,14 @@ void CrlRobot::updateState() {
   getResetEncoder();
   setMoterPower(this->motor_left * 255, this->motor_right * 255);
   calcState();
-  calcTheta();
-
-  calcThetaKalmanFilter();
-
+  
+  if(!this->enable_kalman)
+  {
+    calcTheta();
+   }
+   else{
+     calcThetaKalmanFilter();
+   }
   calcHeadVelocity();
 }
 
@@ -170,7 +174,7 @@ void CrlRobot::calcThetaKalmanFilter() {
   theta = M_PI / 2 - atan2(acc_y, acc_x);
   gyro = this->theta_dot_z;
   kf.update(theta, gyro, offset_gz * 0.00013316);
-  this->theta_kalman = kf.getTheta();
+  this->theta = kf.getTheta();
 }
 
 void CrlRobot::calcHeadVelocity() {
@@ -187,6 +191,7 @@ void CrlRobot::setDt(float _dt) {
   fof_acc_z.setDt(_dt);
   ld_odometry.setDt(_dt);
 }
+void CrlRobot::setKalman(bool enable_kalman){this->enable_kalman=enable_kalman;}
 
 void CrlRobot::setMotorLeft(float motor_left) { this->motor_left = motor_left; }
 
@@ -201,8 +206,6 @@ float CrlRobot::getThetaX() { return this->theta; }
 float CrlRobot::getThetaY() { return this->theta; }
 
 float CrlRobot::getThetaZ() { return this->theta; }
-
-float CrlRobot::getThetaKalman() { return this->theta_kalman; }
 
 float CrlRobot::getHeadVelocity() { return this->head_velocity; }
 

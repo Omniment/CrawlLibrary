@@ -29,11 +29,11 @@ int main() {
 
   crl.init();     // ロボットの初期化
   crl.setDt(dt);  // サンプリング時間を設定
-
+  crl.setKalman(false);  // カルマンフィルタ
   while (1) {
     crl.realtimeLoop();                     // dt[s]ごとに以下ループを実行
     crl.updateState();                      // 各種センサ情報取得,モータ出力の更新
-    theta = crl.getThetaKalman();                // クロールの実姿勢角度を取得
+    theta = crl.getThetaZ();                // クロールの実姿勢角度を取得
     head_velocity = crl.getHeadVelocity();  // クロールの実上端速度を取得
 
     err1 = (theta_d + fof_err2i.getOutput() * ki2) - theta;  // 目標角度と実角度の偏差を計算

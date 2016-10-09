@@ -127,7 +127,6 @@ class Integral {
   /**
    * @brief 出力される積分値を設定する
    *
-   *
    * 積分値をリセットしたい場合,
    * 任意の値を予め与えておきたい場合に使用してください
    * @param y 設定したい値
@@ -221,6 +220,16 @@ class CrlRobot {
    */
   void setDt(float dt);
   /**
+   * @brief センサヒュージョンの方法を設定する
+   *
+   * このメンバ関数は,センサのヒュージョン方法を設定します.
+   * このメンバ関数を呼び出さない場合,相補フィルタによってセンサヒュージョンを行います.
+   *
+   * @param enable_kalman カルマンフィルタを有効にする場合 true
+   * @return なし
+   */
+  void setKalman(bool enable_kalman);
+  /**
    * @brief X軸周りの姿勢角度を取得する
    * @return X軸周りの姿勢角度 単位:rad [-pi/2, +3pi/2]
    * @attention updateState()を呼び出さない限り,情報は更新されません
@@ -241,13 +250,6 @@ class CrlRobot {
    * @sa updateState()
    */
   float getThetaZ();
-  /**
- * @brief カルマンフィルタによって推定されたZ軸周りの姿勢角度を取得する
- * @return Z軸周りの姿勢角度 単位:rad [?,?]
- * @attention updateState()を呼び出さない限り,情報は更新されません
- * @sa updateState(),updateState()
- */
-  float getThetaKalman();
   /**
    * @brief 倒立時のクロール上端の速度を取得する
    *
@@ -395,9 +397,6 @@ class CrlRobot {
   /** Z軸周りの姿勢角度 単位:rad */
   float theta;
 
-  /** カルマンフィルタによって推定されたZ軸周りの姿勢角度 単位:rad */
-  float theta_kalman;
-
   /** クロール上端のX軸方向速度 単位:m/s */
   float head_velocity;
 
@@ -435,6 +434,8 @@ class CrlRobot {
   unsigned long tt;
   /** エンコーダパルス数を移動距離に変換するための係数 */
   float kEtoMM;
+  /** センサヒュージョンの方法を判別するための変数 */
+  bool enable_kalman;
   /**
    * 姿勢角度計算用相補フィルターの係数(角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度の寄与度)*/
   float rate_theta;
@@ -460,7 +461,6 @@ class CrlRobot {
    *
    * 角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度をもとにカルマンフィルターによって計算し姿勢角度を求めます.
    * @return なし
-   * @sa rate_theta
    */
   void calcThetaKalmanFilter();
   /**
