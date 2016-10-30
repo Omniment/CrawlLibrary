@@ -5,9 +5,9 @@
  *
  * センサＩＣとマイコンはシリアル通信（I2C）によりコマンドの送受信をする．
  */
+#include "attitude_sensor.h"
 #include <Arduino.h>
 #include <Wire.h>
-#include "attitude_sensor.h"
 
 int attitude_data[10];
 

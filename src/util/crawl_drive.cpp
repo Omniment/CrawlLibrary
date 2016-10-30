@@ -6,9 +6,9 @@
  * メイン基板とモータ制御基板は分離しており，シリアル通信（Ｉ２Ｃ）によりコマンドの送受信を行う．
  * モータ制御基板のＩ２Ｃアドレスは0x0fに設定されている．
  */
+#include "crawl_drive.h"
 #include <Arduino.h>
 #include <Wire.h>
-#include "crawl_drive.h"
 
 void initMotor() {
   stopMotor();
