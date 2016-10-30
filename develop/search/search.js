@@ -8,9 +8,9 @@
 var indexSectionsWithContent =
 {
   0: "_acdefghiklmorstuy",
-  1: "cfil",
-  2: "ace",
-  3: "acfgimrsu",
+  1: "cfikl",
+  2: "acek",
+  3: "acfgikmrsu",
   4: "acdefhklmorty",
   5: "_cfo"
 };

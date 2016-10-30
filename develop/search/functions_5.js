@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maketiming',['makeTiming',['../a00001.html#ade2dae5b67d901db6ea0a7fcca15d73c',1,'CrlRobot']]]
+  ['kalmanfilter',['KalmanFilter',['../a00004.html#aab2cc3677e9fcb19fff16b84c997f30a',1,'KalmanFilter']]]
 ];

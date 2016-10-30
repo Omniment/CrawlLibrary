@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: src/util/encoder.cpp ファイル</title>
+<title>CrawlLibrary: src/util/encoder.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,33 +89,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <a href="#func-members">関数</a> &#124;
 <a href="#var-members">変数</a>  </div>
   <div class="headertitle">
-<div class="title">encoder.cpp ファイル</div>  </div>
+<div class="title">encoder.h ファイル</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>モータ軸に取り付けられたエンコーダにより， モータ軸の累計回転数を取得するライブラリ．  
 <a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &lt;Wire.h&gt;</code><br />
-</div><table class="memberdecls">
+
+<p><a href="a00013_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:aa9a2ec1f7b0edf739a9128c30d446387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a> ()</td></tr>
+<tr class="memitem:aa9a2ec1f7b0edf739a9128c30d446387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a> ()</td></tr>
 <tr class="memdesc:aa9a2ec1f7b0edf739a9128c30d446387"><td class="mdescLeft">&#160;</td><td class="mdescRight">モータ軸累計回転数を取得し,累計回転数をゼロに戻す  <a href="#aa9a2ec1f7b0edf739a9128c30d446387">[詳解]</a><br /></td></tr>
 <tr class="separator:aa9a2ec1f7b0edf739a9128c30d446387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca93ae00e97c88dd3ea2eeb93afe21e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a> ()</td></tr>
+<tr class="memitem:aca93ae00e97c88dd3ea2eeb93afe21e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a> ()</td></tr>
 <tr class="memdesc:aca93ae00e97c88dd3ea2eeb93afe21e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">モータ軸累計回転数を取得する  <a href="#aca93ae00e97c88dd3ea2eeb93afe21e2">[詳解]</a><br /></td></tr>
 <tr class="separator:aca93ae00e97c88dd3ea2eeb93afe21e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812a103dc597b989ec857571a2e3a47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a> ()</td></tr>
+<tr class="memitem:a812a103dc597b989ec857571a2e3a47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a> ()</td></tr>
 <tr class="memdesc:a812a103dc597b989ec857571a2e3a47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">累計回転数をゼロに戻す  <a href="#a812a103dc597b989ec857571a2e3a47c">[詳解]</a><br /></td></tr>
 <tr class="separator:a812a103dc597b989ec857571a2e3a47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 変数</h2></td></tr>
-<tr class="memitem:ab8954a58d8737b9492e053a3f2f4df98"><td class="memItemLeft" align="right" valign="top">short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a> = 0</td></tr>
-<tr class="separator:ab8954a58d8737b9492e053a3f2f4df98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e82fd372311f6f2710be0d779c8c2fa"><td class="memItemLeft" align="right" valign="top">short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a> = 0</td></tr>
+<tr class="memitem:a4e82fd372311f6f2710be0d779c8c2fa"><td class="memItemLeft" align="right" valign="top">short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a></td></tr>
 <tr class="separator:a4e82fd372311f6f2710be0d779c8c2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8954a58d8737b9492e053a3f2f4df98"><td class="memItemLeft" align="right" valign="top">short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a></td></tr>
+<tr class="separator:ab8954a58d8737b9492e053a3f2f4df98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>モータ軸に取り付けられたエンコーダにより， モータ軸の累計回転数を取得するライブラリ． </p>
@@ -181,7 +181,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">short int left_encoder = 0</td>
+          <td class="memname">short int left_encoder</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -194,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">short int right_encoder = 0</td>
+          <td class="memname">short int right_encoder</td>
         </tr>
       </table>
 </div><div class="memdoc">

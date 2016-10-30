@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: src/util/encoder.h ソースファイル</title>
+<title>CrawlLibrary: src/util/crawl_drive.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -86,28 +86,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">encoder.h</div>  </div>
+<div class="title">crawl_drive.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00012.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef INCLUDED_encoder_h</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define INCLUDED_encoder_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00012.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00012.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00012.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="a00012.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="a00012.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a00012_html_a4e82fd372311f6f2710be0d779c8c2fa"><div class="ttname"><a href="a00012.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a></div><div class="ttdeci">short int left_encoder</div><div class="ttdef"><b>Definition:</b> encoder.cpp:16</div></div>
-<div class="ttc" id="a00012_html_a812a103dc597b989ec857571a2e3a47c"><div class="ttname"><a href="a00012.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a></div><div class="ttdeci">void resetEncoder()</div><div class="ttdoc">累計回転数をゼロに戻す </div><div class="ttdef"><b>Definition:</b> encoder.cpp:49</div></div>
-<div class="ttc" id="a00012_html_aca93ae00e97c88dd3ea2eeb93afe21e2"><div class="ttname"><a href="a00012.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a></div><div class="ttdeci">void getEncoder()</div><div class="ttdoc">モータ軸累計回転数を取得する </div><div class="ttdef"><b>Definition:</b> encoder.cpp:33</div></div>
-<div class="ttc" id="a00012_html_ab8954a58d8737b9492e053a3f2f4df98"><div class="ttname"><a href="a00012.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a></div><div class="ttdeci">short int right_encoder</div><div class="ttdef"><b>Definition:</b> encoder.cpp:15</div></div>
-<div class="ttc" id="a00012_html_aa9a2ec1f7b0edf739a9128c30d446387"><div class="ttname"><a href="a00012.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a></div><div class="ttdeci">void getResetEncoder()</div><div class="ttdoc">モータ軸累計回転数を取得し,累計回転数をゼロに戻す </div><div class="ttdef"><b>Definition:</b> encoder.cpp:18</div></div>
+<a href="a00011.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef INCLUDED_crawl_drive_h</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define INCLUDED_crawl_drive_h</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00011.html#a72af49fb7191c300fa1a1a8ec5c91b13">initMotor</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00011.html#ac485965697295992f2599633a3f5126a">stopMotor</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00011.html#a8c5d0897e0c181f705c507af5fc305d7">setMoterPower</a>(<span class="keywordtype">int</span> left_power, <span class="keywordtype">int</span> right_power);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00011_html_a72af49fb7191c300fa1a1a8ec5c91b13"><div class="ttname"><a href="a00011.html#a72af49fb7191c300fa1a1a8ec5c91b13">initMotor</a></div><div class="ttdeci">void initMotor()</div><div class="ttdoc">モータ機能の初期化 </div><div class="ttdef"><b>Definition:</b> crawl_drive.cpp:13</div></div>
+<div class="ttc" id="a00011_html_ac485965697295992f2599633a3f5126a"><div class="ttname"><a href="a00011.html#ac485965697295992f2599633a3f5126a">stopMotor</a></div><div class="ttdeci">void stopMotor()</div><div class="ttdoc">モータ機能の無効化 </div><div class="ttdef"><b>Definition:</b> crawl_drive.cpp:27</div></div>
+<div class="ttc" id="a00011_html_a8c5d0897e0c181f705c507af5fc305d7"><div class="ttname"><a href="a00011.html#a8c5d0897e0c181f705c507af5fc305d7">setMoterPower</a></div><div class="ttdeci">void setMoterPower(int left_power, int right_power)</div><div class="ttdoc">左右のモータのパワーを指定する </div><div class="ttdef"><b>Definition:</b> crawl_drive.cpp:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

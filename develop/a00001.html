@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pub-attribs">公開変数類</a> &#124;
-<a href="a00014.html">全メンバ一覧</a>  </div>
+<a href="a00017.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">CrlRobot クラス</div>  </div>
 </div><!--header-->
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.  
  <a href="a00001.html#details">[詳解]</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00005_source.html">crawl.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00006_source.html">crawl.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -108,6 +108,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="memitem:a7a7911c74a440824b7d614a6424a6e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f">setDt</a> (float <a class="el" href="a00001.html#a676be60585d6c2edc67c37af049f6b21">dt</a>)</td></tr>
 <tr class="memdesc:a7a7911c74a440824b7d614a6424a6e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ループ間隔を設定する  <a href="#a7a7911c74a440824b7d614a6424a6e9f">[詳解]</a><br /></td></tr>
 <tr class="separator:a7a7911c74a440824b7d614a6424a6e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e092f598fe9043f740b8cd7e435583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ae9e092f598fe9043f740b8cd7e435583">setKalman</a> (bool <a class="el" href="a00001.html#ad4adc79907a187e1a912e61057738e7a">enable_kalman</a>)</td></tr>
+<tr class="memdesc:ae9e092f598fe9043f740b8cd7e435583"><td class="mdescLeft">&#160;</td><td class="mdescRight">センサヒュージョンの方法を設定する  <a href="#ae9e092f598fe9043f740b8cd7e435583">[詳解]</a><br /></td></tr>
+<tr class="separator:ae9e092f598fe9043f740b8cd7e435583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a887ece7acd7f011e40e71c9aaca6b1ab">getThetaX</a> ()</td></tr>
 <tr class="memdesc:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">X軸周りの姿勢角度を取得する  <a href="#a887ece7acd7f011e40e71c9aaca6b1ab">[詳解]</a><br /></td></tr>
 <tr class="separator:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +171,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="memitem:ab9dad80a5d1eec939d58e514d7a20c13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ab9dad80a5d1eec939d58e514d7a20c13">calcTheta</a> ()</td></tr>
 <tr class="memdesc:ab9dad80a5d1eec939d58e514d7a20c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">姿勢角度計算用相補フィルター  <a href="#ab9dad80a5d1eec939d58e514d7a20c13">[詳解]</a><br /></td></tr>
 <tr class="separator:ab9dad80a5d1eec939d58e514d7a20c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17d634796946b0dd9b5e81e5e811ce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ad17d634796946b0dd9b5e81e5e811ce9">calcThetaKalmanFilter</a> ()</td></tr>
+<tr class="memdesc:ad17d634796946b0dd9b5e81e5e811ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">姿勢角度計算用カルマンフィルター  <a href="#ad17d634796946b0dd9b5e81e5e811ce9">[詳解]</a><br /></td></tr>
+<tr class="separator:ad17d634796946b0dd9b5e81e5e811ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade2dae5b67d901db6ea0a7fcca15d73c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ade2dae5b67d901db6ea0a7fcca15d73c">makeTiming</a> ()</td></tr>
 <tr class="memdesc:ade2dae5b67d901db6ea0a7fcca15d73c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00001.html#a253edffc77514f7017c760dd6b9c394f" title="ループが一定間隔になるよう調節する ">realtimeLoop()</a>のサブ関数  <a href="#ade2dae5b67d901db6ea0a7fcca15d73c">[詳解]</a><br /></td></tr>
 <tr class="separator:ade2dae5b67d901db6ea0a7fcca15d73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,6 +234,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="separator:abc64b11efc2c5b6ad87a770b70054e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e87ca954fa46267ad9f06f5e2e7cf72"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a8e87ca954fa46267ad9f06f5e2e7cf72">kEtoMM</a></td></tr>
 <tr class="separator:a8e87ca954fa46267ad9f06f5e2e7cf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4adc79907a187e1a912e61057738e7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ad4adc79907a187e1a912e61057738e7a">enable_kalman</a></td></tr>
+<tr class="separator:ad4adc79907a187e1a912e61057738e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3863abd20aa926e6a29c66bfb53ddb9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ab3863abd20aa926e6a29c66bfb53ddb9">rate_theta</a></td></tr>
 <tr class="separator:ab3863abd20aa926e6a29c66bfb53ddb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae898c8c8179c3a87d9a70561273d84bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00002.html">FirstOrderFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ae898c8c8179c3a87d9a70561273d84bf">fof_acc_x</a></td></tr>
@@ -236,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="separator:a27bb9565a170991afbeb0abe03c5f244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9808dbc7c866dab1c38db0782c5aa69c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00002.html">FirstOrderFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a9808dbc7c866dab1c38db0782c5aa69c">fof_acc_z</a></td></tr>
 <tr class="separator:a9808dbc7c866dab1c38db0782c5aa69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d1c4a28a02715e75cba3284534d5aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00004.html">LaggedDerivative</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a5d1c4a28a02715e75cba3284534d5aac">ld_odometry</a></td></tr>
+<tr class="memitem:a5d1c4a28a02715e75cba3284534d5aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">LaggedDerivative</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a5d1c4a28a02715e75cba3284534d5aac">ld_odometry</a></td></tr>
 <tr class="separator:a5d1c4a28a02715e75cba3284534d5aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -296,6 +304,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <p>姿勢角度計算用相補フィルター </p>
 <p>角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度をもとに相補フィルターによって計算し姿勢角度を求めます. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 <dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#ab3863abd20aa926e6a29c66bfb53ddb9">rate_theta</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad17d634796946b0dd9b5e81e5e811ce9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::calcThetaKalmanFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>姿勢角度計算用カルマンフィルター </p>
+<p>角速度センサーから求まる姿勢角度と加速度センサーから求まる姿勢角度をもとにカルマンフィルターによって計算し姿勢角度を求めます. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
 
 </div>
 </div>
@@ -742,6 +768,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 </div>
 </div>
+<a class="anchor" id="ae9e092f598fe9043f740b8cd7e435583"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::setKalman </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable_kalman</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>センサヒュージョンの方法を設定する </p>
+<p>このメンバ関数は,センサのヒュージョン方法を設定します. このメンバ関数を呼び出さない場合,相補フィルタによってセンサヒュージョンを行います.</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable_kalman</td><td>カルマンフィルタを有効にする場合true,相補フィルタを有効にする場合false </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>注意</dt><dd>カルマンフィルタを用いてセンサヒュージョンを行う場合,2 [ms]の計算時間がかかります </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a6938183d987090e6d2c30117862402e0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -882,6 +935,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 </div>
 </div>
+<a class="anchor" id="ad4adc79907a187e1a912e61057738e7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CrlRobot::enable_kalman</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>センサヒュージョンの方法を判別するための変数 </p>
+
+</div>
+</div>
 <a class="anchor" id="a404db9ae89761759c7d27a0b1a0c814a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -978,7 +1044,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00004.html">LaggedDerivative</a> CrlRobot::ld_odometry</td>
+          <td class="memname"><a class="el" href="a00005.html">LaggedDerivative</a> CrlRobot::ld_odometry</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1156,13 +1222,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>src/<a class="el" href="a00005_source.html">crawl.h</a></li>
-<li>src/util/<a class="el" href="a00008.html">crawl.cpp</a></li>
+<li>src/<a class="el" href="a00006_source.html">crawl.h</a></li>
+<li>src/util/<a class="el" href="a00009.html">crawl.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

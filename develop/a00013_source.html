@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: src/crawl.h ファイル</title>
+<title>CrawlLibrary: src/util/encoder.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,61 +81,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">クラス</a> &#124;
-<a href="#var-members">変数</a>  </div>
   <div class="headertitle">
-<div class="title">crawl.h ファイル</div>  </div>
+<div class="title">encoder.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ. 制御に必要とされる一次遅れフィルターや不完全微分  
-<a href="#details">[詳解]</a></p>
-<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-</div>
-<p><a href="a00006_source.html">[ソースコード]</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">FirstOrderFilter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">一次遅れフィルタークラス.  <a href="a00002.html#details">[詳解]</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html">LaggedDerivative</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">不完全微分要素クラス.  <a href="a00005.html#details">[詳解]</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">Integral</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">制限付き積分要素クラス  <a href="a00003.html#details">[詳解]</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html">CrlRobot</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.  <a href="a00001.html#details">[詳解]</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-変数</h2></td></tr>
-<tr class="memitem:a6236962ef37df90bd7ffb846c2b94587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00001.html">CrlRobot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#a6236962ef37df90bd7ffb846c2b94587">crl</a></td></tr>
-<tr class="separator:a6236962ef37df90bd7ffb846c2b94587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのライブラリ. 制御に必要とされる一次遅れフィルターや不完全微分 </p>
-</div><h2 class="groupheader">変数詳解</h2>
-<a class="anchor" id="a6236962ef37df90bd7ffb846c2b94587"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00001.html">CrlRobot</a> crl</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>CrlRobotのインスタンス </p>
-
-</div>
-</div>
-</div><!-- contents -->
+<a href="a00013.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef INCLUDED_encoder_h</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define INCLUDED_encoder_h</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00013.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00013.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00013.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="a00013.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="a00013.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00013_html_ab8954a58d8737b9492e053a3f2f4df98"><div class="ttname"><a href="a00013.html#ab8954a58d8737b9492e053a3f2f4df98">right_encoder</a></div><div class="ttdeci">short int right_encoder</div><div class="ttdef"><b>Definition:</b> encoder.cpp:15</div></div>
+<div class="ttc" id="a00013_html_a4e82fd372311f6f2710be0d779c8c2fa"><div class="ttname"><a href="a00013.html#a4e82fd372311f6f2710be0d779c8c2fa">left_encoder</a></div><div class="ttdeci">short int left_encoder</div><div class="ttdef"><b>Definition:</b> encoder.cpp:16</div></div>
+<div class="ttc" id="a00013_html_a812a103dc597b989ec857571a2e3a47c"><div class="ttname"><a href="a00013.html#a812a103dc597b989ec857571a2e3a47c">resetEncoder</a></div><div class="ttdeci">void resetEncoder()</div><div class="ttdoc">累計回転数をゼロに戻す </div><div class="ttdef"><b>Definition:</b> encoder.cpp:49</div></div>
+<div class="ttc" id="a00013_html_aa9a2ec1f7b0edf739a9128c30d446387"><div class="ttname"><a href="a00013.html#aa9a2ec1f7b0edf739a9128c30d446387">getResetEncoder</a></div><div class="ttdeci">void getResetEncoder()</div><div class="ttdoc">モータ軸累計回転数を取得し,累計回転数をゼロに戻す </div><div class="ttdef"><b>Definition:</b> encoder.cpp:18</div></div>
+<div class="ttc" id="a00013_html_aca93ae00e97c88dd3ea2eeb93afe21e2"><div class="ttname"><a href="a00013.html#aca93ae00e97c88dd3ea2eeb93afe21e2">getEncoder</a></div><div class="ttdeci">void getEncoder()</div><div class="ttdoc">モータ軸累計回転数を取得する </div><div class="ttdef"><b>Definition:</b> encoder.cpp:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">

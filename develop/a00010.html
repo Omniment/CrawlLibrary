@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: src/util/crawl_drive.h ファイル</title>
+<title>CrawlLibrary: src/util/crawl_drive.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -88,15 +88,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   <div class="summary">
 <a href="#func-members">関数</a>  </div>
   <div class="headertitle">
-<div class="title">crawl_drive.h ファイル</div>  </div>
+<div class="title">crawl_drive.cpp ファイル</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>ロボットに搭載された左右のモータを制御ための関数群  
 <a href="#details">[詳解]</a></p>
-
-<p><a href="a00010_source.html">[ソースコード]</a></p>
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;<a class="el" href="a00011_source.html">crawl_drive.h</a>&quot;</code><br />
+<code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;Wire.h&gt;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 関数</h2></td></tr>
 <tr class="memitem:a72af49fb7191c300fa1a1a8ec5c91b13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a72af49fb7191c300fa1a1a8ec5c91b13">initMotor</a> ()</td></tr>
@@ -183,14 +184,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 <p>モータ機能の無効化 </p>
 <p>無効化の状態ではモータのパワーを指定しても動作しません. 有効化する場合はinitMotor()を呼び出す必要があります. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
-<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00010.html#a72af49fb7191c300fa1a1a8ec5c91b13" title="モータ機能の初期化 ">initMotor()</a> </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00011.html#a72af49fb7191c300fa1a1a8ec5c91b13" title="モータ機能の初期化 ">initMotor()</a> </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

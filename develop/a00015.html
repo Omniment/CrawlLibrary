@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: メンバ一覧</title>
+<title>CrawlLibrary: src/util/kalmanfilter.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>総合概要</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -61,10 +61,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
-      <li><a href="classes.html"><span>クラス索引</span></a></li>
-      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -81,27 +79,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b7878ad5ecbf2506f4125b9d34c97e45.html">util</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a>  </div>
   <div class="headertitle">
-<div class="title">FirstOrderFilter メンバ一覧</div>  </div>
+<div class="title">kalmanfilter.h ファイル</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>継承メンバを含む <a class="el" href="a00002.html">FirstOrderFilter</a> の全メンバ一覧です。</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00002.html#a75e32a472613e732f4680837ac09d5bf">calculate</a>(float x)</td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00002.html#a5d992b8f98b225497a910e93834b6734">dt</a></td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00002.html#af137b50eae137694156e95568c757e79">FirstOrderFilter</a>()</td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00002.html#a87eda9e5da8bcecc1b049de05b996827">getOutput</a>()</td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00002.html#ab575ef546dcd8e7c520a534c4ef2907a">setDt</a>(float dt)</td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00002.html#aba03571cfdad041fcc5f6e8f291e1764">setT</a>(float T)</td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00002.html#a5df83c217688bc90e11b9818d9002b27">T</a></td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a00002.html#a87efad9b8da4ac9b89159e6d1bab4a73">y</a></td><td class="entry"><a class="el" href="a00002.html">FirstOrderFilter</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-</table></div><!-- contents -->
+<p>カルマンフィルタによって加速度センサとジャイロセンサから姿勢情報を推定する.  
+<a href="#details">[詳解]</a></p>
+
+<p><a href="a00015_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">KalmanFilter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>カルマンフィルタによって加速度センサとジャイロセンサから姿勢情報を推定する. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

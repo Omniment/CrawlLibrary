@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -80,6 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -114,10 +115,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <li>calcTheta()
 : <a class="el" href="a00001.html#ab9dad80a5d1eec939d58e514d7a20c13">CrlRobot</a>
 </li>
+<li>calcThetaKalmanFilter()
+: <a class="el" href="a00001.html#ad17d634796946b0dd9b5e81e5e811ce9">CrlRobot</a>
+</li>
 <li>calculate()
 : <a class="el" href="a00002.html#a75e32a472613e732f4680837ac09d5bf">FirstOrderFilter</a>
 , <a class="el" href="a00003.html#ae8427adc7aba36a97c38712631172c39">Integral</a>
-, <a class="el" href="a00004.html#a681563ec0ea47a67e4a4a9adf4676029">LaggedDerivative</a>
+, <a class="el" href="a00005.html#a681563ec0ea47a67e4a4a9adf4676029">LaggedDerivative</a>
 </li>
 </ul>
 
@@ -157,7 +161,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <li>getOutput()
 : <a class="el" href="a00002.html#a87eda9e5da8bcecc1b049de05b996827">FirstOrderFilter</a>
 , <a class="el" href="a00003.html#a053766eb17a421cb210ab2f7fe0f33d9">Integral</a>
-, <a class="el" href="a00004.html#a4951823405edfb5863d6dfa0889478be">LaggedDerivative</a>
+, <a class="el" href="a00005.html#a4951823405edfb5863d6dfa0889478be">LaggedDerivative</a>
+</li>
+<li>getTheta()
+: <a class="el" href="a00004.html#ae6d57ba5a618e347b8a6f665e14ee392">KalmanFilter</a>
+</li>
+<li>getThetaDot()
+: <a class="el" href="a00004.html#af9b730a9d8f1c59855fb20d1204dea2f">KalmanFilter</a>
 </li>
 <li>getThetaDotX()
 : <a class="el" href="a00001.html#a686b59363b8245eff0933176dfe25646">CrlRobot</a>
@@ -167,6 +177,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </li>
 <li>getThetaDotZ()
 : <a class="el" href="a00001.html#ac3538f93633b3ff5c99c59c66a3ebde0">CrlRobot</a>
+</li>
+<li>getThetaVariance()
+: <a class="el" href="a00004.html#adf2e181870e240aaf90141c61676c067">KalmanFilter</a>
 </li>
 <li>getThetaX()
 : <a class="el" href="a00001.html#a887ece7acd7f011e40e71c9aaca6b1ab">CrlRobot</a>
@@ -196,6 +209,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </ul>
 
 
+<h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>KalmanFilter()
+: <a class="el" href="a00004.html#aab2cc3677e9fcb19fff16b84c997f30a">KalmanFilter</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>makeTiming()
 : <a class="el" href="a00001.html#ade2dae5b67d901db6ea0a7fcca15d73c">CrlRobot</a>
@@ -221,6 +241,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 : <a class="el" href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f">CrlRobot</a>
 , <a class="el" href="a00002.html#ab575ef546dcd8e7c520a534c4ef2907a">FirstOrderFilter</a>
 , <a class="el" href="a00003.html#a9e292082ff8149fa2eb48c1a405cd302">Integral</a>
+, <a class="el" href="a00004.html#a0058fe7af694d17274c8e8fa3d60d1b6">KalmanFilter</a>
+</li>
+<li>setKalman()
+: <a class="el" href="a00001.html#ae9e092f598fe9043f740b8cd7e435583">CrlRobot</a>
 </li>
 <li>setLimit()
 : <a class="el" href="a00003.html#afad5d4ac69c7d1d774116ecb617d3ac6">Integral</a>
@@ -241,6 +265,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>update()
+: <a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac">KalmanFilter</a>
+</li>
 <li>updateState()
 : <a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f">CrlRobot</a>
 </li>
@@ -248,7 +275,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CrawlLibrary: LaggedDerivative クラス</title>
+<title>CrawlLibrary: KalmanFilter クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">CrawlLibrary
-   &#160;<span id="projectnumber">2016-10-09_19:27:01</span>
+   &#160;<span id="projectnumber">2016-10-30_14:29:39</span>
    </div>
    <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
   </td>
@@ -85,88 +85,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="a00017.html">全メンバ一覧</a>  </div>
+<a href="a00020.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
-<div class="title">LaggedDerivative クラス</div>  </div>
+<div class="title">KalmanFilter クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>不完全微分要素クラス.  
- <a href="a00004.html#details">[詳解]</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00005_source.html">crawl.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00015_source.html">kalmanfilter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a681563ec0ea47a67e4a4a9adf4676029"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a681563ec0ea47a67e4a4a9adf4676029">calculate</a> (float x)</td></tr>
-<tr class="memdesc:a681563ec0ea47a67e4a4a9adf4676029"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力から出力を計算する  <a href="#a681563ec0ea47a67e4a4a9adf4676029">[詳解]</a><br /></td></tr>
-<tr class="separator:a681563ec0ea47a67e4a4a9adf4676029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4951823405edfb5863d6dfa0889478be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a4951823405edfb5863d6dfa0889478be">getOutput</a> ()</td></tr>
-<tr class="memdesc:a4951823405edfb5863d6dfa0889478be"><td class="mdescLeft">&#160;</td><td class="mdescRight">不完全微分した値を取得する  <a href="#a4951823405edfb5863d6dfa0889478be">[詳解]</a><br /></td></tr>
-<tr class="separator:a4951823405edfb5863d6dfa0889478be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="a00002.html">FirstOrderFilter</a> に属する継承公開メンバ関数</td></tr>
-<tr class="memitem:af137b50eae137694156e95568c757e79 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#af137b50eae137694156e95568c757e79">FirstOrderFilter</a> ()</td></tr>
-<tr class="memdesc:af137b50eae137694156e95568c757e79 inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="#af137b50eae137694156e95568c757e79">[詳解]</a><br /></td></tr>
-<tr class="separator:af137b50eae137694156e95568c757e79 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab575ef546dcd8e7c520a534c4ef2907a inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#ab575ef546dcd8e7c520a534c4ef2907a">setDt</a> (float <a class="el" href="a00002.html#a5d992b8f98b225497a910e93834b6734">dt</a>)</td></tr>
-<tr class="memdesc:ab575ef546dcd8e7c520a534c4ef2907a inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">サンプリングタイムを設定する  <a href="#ab575ef546dcd8e7c520a534c4ef2907a">[詳解]</a><br /></td></tr>
-<tr class="separator:ab575ef546dcd8e7c520a534c4ef2907a inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba03571cfdad041fcc5f6e8f291e1764 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#aba03571cfdad041fcc5f6e8f291e1764">setT</a> (float <a class="el" href="a00002.html#a5df83c217688bc90e11b9818d9002b27">T</a>)</td></tr>
-<tr class="memdesc:aba03571cfdad041fcc5f6e8f291e1764 inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">時定数を設定する  <a href="#aba03571cfdad041fcc5f6e8f291e1764">[詳解]</a><br /></td></tr>
-<tr class="separator:aba03571cfdad041fcc5f6e8f291e1764 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87eda9e5da8bcecc1b049de05b996827 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a87eda9e5da8bcecc1b049de05b996827">getOutput</a> ()</td></tr>
-<tr class="memdesc:a87eda9e5da8bcecc1b049de05b996827 inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力値を取得する  <a href="#a87eda9e5da8bcecc1b049de05b996827">[詳解]</a><br /></td></tr>
-<tr class="separator:a87eda9e5da8bcecc1b049de05b996827 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75e32a472613e732f4680837ac09d5bf inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a75e32a472613e732f4680837ac09d5bf">calculate</a> (float x)</td></tr>
-<tr class="memdesc:a75e32a472613e732f4680837ac09d5bf inherit pub_methods_a00002"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力から出力を計算する  <a href="#a75e32a472613e732f4680837ac09d5bf">[詳解]</a><br /></td></tr>
-<tr class="separator:a75e32a472613e732f4680837ac09d5bf inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-その他の継承メンバ</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00002"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00002')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="a00002.html">FirstOrderFilter</a> に属する継承限定公開変数類</td></tr>
-<tr class="memitem:a5d992b8f98b225497a910e93834b6734 inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a5d992b8f98b225497a910e93834b6734">dt</a></td></tr>
-<tr class="separator:a5d992b8f98b225497a910e93834b6734 inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5df83c217688bc90e11b9818d9002b27 inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a5df83c217688bc90e11b9818d9002b27">T</a></td></tr>
-<tr class="separator:a5df83c217688bc90e11b9818d9002b27 inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87efad9b8da4ac9b89159e6d1bab4a73 inherit pro_attribs_a00002"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#a87efad9b8da4ac9b89159e6d1bab4a73">y</a></td></tr>
-<tr class="separator:a87efad9b8da4ac9b89159e6d1bab4a73 inherit pro_attribs_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2cc3677e9fcb19fff16b84c997f30a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#aab2cc3677e9fcb19fff16b84c997f30a">KalmanFilter</a> ()</td></tr>
+<tr class="separator:aab2cc3677e9fcb19fff16b84c997f30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186ede1c9624a0f96e92250fcdcd33ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac">update</a> (float theta, float gyro, float gyro_offset)</td></tr>
+<tr class="memdesc:a186ede1c9624a0f96e92250fcdcd33ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">状態量の更新  <a href="#a186ede1c9624a0f96e92250fcdcd33ac">[詳解]</a><br /></td></tr>
+<tr class="separator:a186ede1c9624a0f96e92250fcdcd33ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d57ba5a618e347b8a6f665e14ee392"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ae6d57ba5a618e347b8a6f665e14ee392">getTheta</a> ()</td></tr>
+<tr class="memdesc:ae6d57ba5a618e347b8a6f665e14ee392"><td class="mdescLeft">&#160;</td><td class="mdescRight">カルマンフィルタによって推定された角度を取得する  <a href="#ae6d57ba5a618e347b8a6f665e14ee392">[詳解]</a><br /></td></tr>
+<tr class="separator:ae6d57ba5a618e347b8a6f665e14ee392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2e181870e240aaf90141c61676c067"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#adf2e181870e240aaf90141c61676c067">getThetaVariance</a> ()</td></tr>
+<tr class="memdesc:adf2e181870e240aaf90141c61676c067"><td class="mdescLeft">&#160;</td><td class="mdescRight">カルマンフィルタによって推定された角度の推定値の分散を取得する  <a href="#adf2e181870e240aaf90141c61676c067">[詳解]</a><br /></td></tr>
+<tr class="separator:adf2e181870e240aaf90141c61676c067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b730a9d8f1c59855fb20d1204dea2f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#af9b730a9d8f1c59855fb20d1204dea2f">getThetaDot</a> ()</td></tr>
+<tr class="memdesc:af9b730a9d8f1c59855fb20d1204dea2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">カルマンフィルタによって推定された角速度を取得する  <a href="#af9b730a9d8f1c59855fb20d1204dea2f">[詳解]</a><br /></td></tr>
+<tr class="separator:af9b730a9d8f1c59855fb20d1204dea2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0058fe7af694d17274c8e8fa3d60d1b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a0058fe7af694d17274c8e8fa3d60d1b6">setDt</a> (float)</td></tr>
+<tr class="memdesc:a0058fe7af694d17274c8e8fa3d60d1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ループ間隔を設定する  <a href="#a0058fe7af694d17274c8e8fa3d60d1b6">[詳解]</a><br /></td></tr>
+<tr class="separator:a0058fe7af694d17274c8e8fa3d60d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>不完全微分要素クラス. </p>
-<p>一次遅れフィルタークラスを継承 </p>
-</div><h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a681563ec0ea47a67e4a4a9adf4676029"></a>
+<h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="aab2cc3677e9fcb19fff16b84c997f30a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float LaggedDerivative::calculate </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>入力から出力を計算する </p>
-<p>ルンゲクッタ法により4次の精度で不完全微分を計算します. </p><dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>入力値 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
-<dl class="section attention"><dt>注意</dt><dd>ループ中では一回だけ呼び出すようにしてください. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a4951823405edfb5863d6dfa0889478be"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float LaggedDerivative::getOutput </td>
+          <td class="memname">KalmanFilter::KalmanFilter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,19 +127,140 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
       </table>
 </div><div class="memdoc">
 
-<p>不完全微分した値を取得する </p>
-<p>不完全微分した値を取得します. </p><dl class="section return"><dt>戻り値</dt><dd>不完全微分した値 </dd></dl>
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="ae6d57ba5a618e347b8a6f665e14ee392"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float KalmanFilter::getTheta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カルマンフィルタによって推定された角度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>カルマンフィルタによって推定された角度 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af9b730a9d8f1c59855fb20d1204dea2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float KalmanFilter::getThetaDot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カルマンフィルタによって推定された角速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>カルマンフィルタによって推定された角速度 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adf2e181870e240aaf90141c61676c067"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float KalmanFilter::getThetaVariance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カルマンフィルタによって推定された角度の推定値の分散を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>カルマンフィルタによって推定された角度の推定値の分散 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00004.html#a186ede1c9624a0f96e92250fcdcd33ac" title="状態量の更新 ">update()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0058fe7af694d17274c8e8fa3d60d1b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KalmanFilter::setDt </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ループ間隔を設定する </p>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a186ede1c9624a0f96e92250fcdcd33ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KalmanFilter::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>gyro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>gyro_offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>状態量の更新 </p>
+<p>加速度センサから算出した角度とジャイロセンサから取得された値を用いて状態量(角度,角速度,角速度バイアス)を更新する. </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>加速度センサから算出した角度 [rad] </td></tr>
+    <tr><td class="paramname">gyro</td><td>ジャイロセンサの値 [rad/s] </td></tr>
+    <tr><td class="paramname">gyro</td><td>ジャイロセンサのオフセット値 [rad/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>時間間隔dtごとに呼び出して下さい。 </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>src/<a class="el" href="a00005_source.html">crawl.h</a></li>
-<li>src/util/<a class="el" href="a00008.html">crawl.cpp</a></li>
+<li>src/util/<a class="el" href="a00015_source.html">kalmanfilter.h</a></li>
+<li>src/util/<a class="el" href="a00014.html">kalmanfilter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-2016年10月09日(日) 19時27分01秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+2016年10月30日(日) 14時29分39秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
