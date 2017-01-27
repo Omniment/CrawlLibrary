@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>CrawlLibrary: CrlRobot クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">CrawlLibrary
+   &#160;<span id="projectnumber">v2.0.2</span>
+   </div>
+   <div id="projectbrief">Omnimentの教育用ロボットCrawlのライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
+      <li><a href="classes.html"><span>クラス索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>関数</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="a00006.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">CrlRobot クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス.  
+ <a href="a00001.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00005_source.html">crawl.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a7fe815f51d700f97dcc47fb5693579b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a7fe815f51d700f97dcc47fb5693579b5">init</a> ()</td></tr>
+<tr class="memdesc:a7fe815f51d700f97dcc47fb5693579b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">クロールの初期化  <a href="#a7fe815f51d700f97dcc47fb5693579b5">[詳解]</a><br /></td></tr>
+<tr class="separator:a7fe815f51d700f97dcc47fb5693579b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253edffc77514f7017c760dd6b9c394f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a253edffc77514f7017c760dd6b9c394f">realtimeLoop</a> ()</td></tr>
+<tr class="memdesc:a253edffc77514f7017c760dd6b9c394f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ループが一定間隔になるよう調節する  <a href="#a253edffc77514f7017c760dd6b9c394f">[詳解]</a><br /></td></tr>
+<tr class="separator:a253edffc77514f7017c760dd6b9c394f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a7911c74a440824b7d614a6424a6e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f">setDt</a> (float dt)</td></tr>
+<tr class="memdesc:a7a7911c74a440824b7d614a6424a6e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ループ間隔を設定する  <a href="#a7a7911c74a440824b7d614a6424a6e9f">[詳解]</a><br /></td></tr>
+<tr class="separator:a7a7911c74a440824b7d614a6424a6e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e092f598fe9043f740b8cd7e435583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ae9e092f598fe9043f740b8cd7e435583">setKalman</a> (bool enable_kalman)</td></tr>
+<tr class="memdesc:ae9e092f598fe9043f740b8cd7e435583"><td class="mdescLeft">&#160;</td><td class="mdescRight">センサヒュージョンの方法を設定する  <a href="#ae9e092f598fe9043f740b8cd7e435583">[詳解]</a><br /></td></tr>
+<tr class="separator:ae9e092f598fe9043f740b8cd7e435583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a887ece7acd7f011e40e71c9aaca6b1ab">getThetaX</a> ()</td></tr>
+<tr class="memdesc:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">X軸周りの姿勢角度を取得する  <a href="#a887ece7acd7f011e40e71c9aaca6b1ab">[詳解]</a><br /></td></tr>
+<tr class="separator:a887ece7acd7f011e40e71c9aaca6b1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ab9da460f79060ab3d82fdb4f7c0fa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a09ab9da460f79060ab3d82fdb4f7c0fa">getThetaY</a> ()</td></tr>
+<tr class="memdesc:a09ab9da460f79060ab3d82fdb4f7c0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y軸周りの姿勢角度を取得する  <a href="#a09ab9da460f79060ab3d82fdb4f7c0fa">[詳解]</a><br /></td></tr>
+<tr class="separator:a09ab9da460f79060ab3d82fdb4f7c0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bc86cd741041291a68c5694fbe043e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a09bc86cd741041291a68c5694fbe043e">getThetaZ</a> ()</td></tr>
+<tr class="memdesc:a09bc86cd741041291a68c5694fbe043e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Z軸周りの姿勢角度を取得する  <a href="#a09bc86cd741041291a68c5694fbe043e">[詳解]</a><br /></td></tr>
+<tr class="separator:a09bc86cd741041291a68c5694fbe043e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22d25aa7c7eef8234f977639315b3e3d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a22d25aa7c7eef8234f977639315b3e3d">getHeadVelocity</a> ()</td></tr>
+<tr class="memdesc:a22d25aa7c7eef8234f977639315b3e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">倒立時のクロール上端の速度を取得する  <a href="#a22d25aa7c7eef8234f977639315b3e3d">[詳解]</a><br /></td></tr>
+<tr class="separator:a22d25aa7c7eef8234f977639315b3e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc220c5a59262261fb277ab2204915b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a2fc220c5a59262261fb277ab2204915b">getAccX</a> ()</td></tr>
+<tr class="memdesc:a2fc220c5a59262261fb277ab2204915b"><td class="mdescLeft">&#160;</td><td class="mdescRight">X軸方向の加速度を取得する  <a href="#a2fc220c5a59262261fb277ab2204915b">[詳解]</a><br /></td></tr>
+<tr class="separator:a2fc220c5a59262261fb277ab2204915b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2b252a6da800d1bbc27689f646394b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a3a2b252a6da800d1bbc27689f646394b">getAccY</a> ()</td></tr>
+<tr class="memdesc:a3a2b252a6da800d1bbc27689f646394b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y軸方向の加速度を取得する  <a href="#a3a2b252a6da800d1bbc27689f646394b">[詳解]</a><br /></td></tr>
+<tr class="separator:a3a2b252a6da800d1bbc27689f646394b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd1b86562b2f93b17ca676f0abc6c64"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#abcd1b86562b2f93b17ca676f0abc6c64">getAccZ</a> ()</td></tr>
+<tr class="memdesc:abcd1b86562b2f93b17ca676f0abc6c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Z軸方向の加速度を取得する  <a href="#abcd1b86562b2f93b17ca676f0abc6c64">[詳解]</a><br /></td></tr>
+<tr class="separator:abcd1b86562b2f93b17ca676f0abc6c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686b59363b8245eff0933176dfe25646"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a686b59363b8245eff0933176dfe25646">getThetaDotX</a> ()</td></tr>
+<tr class="memdesc:a686b59363b8245eff0933176dfe25646"><td class="mdescLeft">&#160;</td><td class="mdescRight">X軸周りの角速度を取得する  <a href="#a686b59363b8245eff0933176dfe25646">[詳解]</a><br /></td></tr>
+<tr class="separator:a686b59363b8245eff0933176dfe25646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4e3f8655f27458ffdec6afe2a38305"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#afd4e3f8655f27458ffdec6afe2a38305">getThetaDotY</a> ()</td></tr>
+<tr class="memdesc:afd4e3f8655f27458ffdec6afe2a38305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y軸周りの角速度を取得する  <a href="#afd4e3f8655f27458ffdec6afe2a38305">[詳解]</a><br /></td></tr>
+<tr class="separator:afd4e3f8655f27458ffdec6afe2a38305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3538f93633b3ff5c99c59c66a3ebde0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ac3538f93633b3ff5c99c59c66a3ebde0">getThetaDotZ</a> ()</td></tr>
+<tr class="memdesc:ac3538f93633b3ff5c99c59c66a3ebde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Z軸周りの角速度を取得する  <a href="#ac3538f93633b3ff5c99c59c66a3ebde0">[詳解]</a><br /></td></tr>
+<tr class="separator:ac3538f93633b3ff5c99c59c66a3ebde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a669ab1a482b88fb7e4cc38853d3ab117"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a669ab1a482b88fb7e4cc38853d3ab117">getEncoderLeft</a> ()</td></tr>
+<tr class="memdesc:a669ab1a482b88fb7e4cc38853d3ab117"><td class="mdescLeft">&#160;</td><td class="mdescRight">左エンコーダの値を取得する  <a href="#a669ab1a482b88fb7e4cc38853d3ab117">[詳解]</a><br /></td></tr>
+<tr class="separator:a669ab1a482b88fb7e4cc38853d3ab117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a978cc46d4282e86abc1ee3742d5b4d6e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a978cc46d4282e86abc1ee3742d5b4d6e">getEncoderRight</a> ()</td></tr>
+<tr class="memdesc:a978cc46d4282e86abc1ee3742d5b4d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">右エンコーダの値を取得する  <a href="#a978cc46d4282e86abc1ee3742d5b4d6e">[詳解]</a><br /></td></tr>
+<tr class="separator:a978cc46d4282e86abc1ee3742d5b4d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0817f4df0bc9b8f55f960341f592c46a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a0817f4df0bc9b8f55f960341f592c46a">getOdometryLeft</a> ()</td></tr>
+<tr class="memdesc:a0817f4df0bc9b8f55f960341f592c46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">左クローラの進んだ距離の値を取得する  <a href="#a0817f4df0bc9b8f55f960341f592c46a">[詳解]</a><br /></td></tr>
+<tr class="separator:a0817f4df0bc9b8f55f960341f592c46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bc25abe7102676ad7e8827892c0cb4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ac9bc25abe7102676ad7e8827892c0cb4">getOdometryRight</a> ()</td></tr>
+<tr class="memdesc:ac9bc25abe7102676ad7e8827892c0cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">右クローラの進んだ距離を取得する  <a href="#ac9bc25abe7102676ad7e8827892c0cb4">[詳解]</a><br /></td></tr>
+<tr class="separator:ac9bc25abe7102676ad7e8827892c0cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6938183d987090e6d2c30117862402e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a6938183d987090e6d2c30117862402e0">setMotorLeft</a> (float motor_left)</td></tr>
+<tr class="memdesc:a6938183d987090e6d2c30117862402e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">左モーターの出力を設定  <a href="#a6938183d987090e6d2c30117862402e0">[詳解]</a><br /></td></tr>
+<tr class="separator:a6938183d987090e6d2c30117862402e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7afa8cbc9bfa0494392c9ce1f6c3d1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ae7afa8cbc9bfa0494392c9ce1f6c3d1a">setMotorRight</a> (float motor_right)</td></tr>
+<tr class="memdesc:ae7afa8cbc9bfa0494392c9ce1f6c3d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">右モーターの出力を設定  <a href="#ae7afa8cbc9bfa0494392c9ce1f6c3d1a">[詳解]</a><br /></td></tr>
+<tr class="separator:ae7afa8cbc9bfa0494392c9ce1f6c3d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba6e1c52ef385b5a1215b8ced0c3aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a1ba6e1c52ef385b5a1215b8ced0c3aa8">resetEncoderLeft</a> ()</td></tr>
+<tr class="memdesc:a1ba6e1c52ef385b5a1215b8ced0c3aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">左エンコーダの累積値を0に設定する  <a href="#a1ba6e1c52ef385b5a1215b8ced0c3aa8">[詳解]</a><br /></td></tr>
+<tr class="separator:a1ba6e1c52ef385b5a1215b8ced0c3aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47312ddc1e644c5b20acd773e68dd81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ad47312ddc1e644c5b20acd773e68dd81">resetEncoderRight</a> ()</td></tr>
+<tr class="memdesc:ad47312ddc1e644c5b20acd773e68dd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">右エンコーダの累積値を0に設定する  <a href="#ad47312ddc1e644c5b20acd773e68dd81">[詳解]</a><br /></td></tr>
+<tr class="separator:ad47312ddc1e644c5b20acd773e68dd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61fffbc4290a6a31d9abb40c40980d9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f">updateState</a> ()</td></tr>
+<tr class="memdesc:a61fffbc4290a6a31d9abb40c40980d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">クロールの状態を更新  <a href="#a61fffbc4290a6a31d9abb40c40980d9f">[詳解]</a><br /></td></tr>
+<tr class="separator:a61fffbc4290a6a31d9abb40c40980d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>クロールに対して指令を出す,クロールの持っているセンサの情報を取得するためのクラス. </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a2fc220c5a59262261fb277ab2204915b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getAccX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X軸方向の加速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>X軸方向の加速度 単位:m/s^2 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a2b252a6da800d1bbc27689f646394b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getAccY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y軸方向の加速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Y軸方向の加速度 単位:m/s^2 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abcd1b86562b2f93b17ca676f0abc6c64"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getAccZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Z軸方向の加速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Z軸方向の加速度 単位:m/s^2 </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a669ab1a482b88fb7e4cc38853d3ab117"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getEncoderLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>左エンコーダの値を取得する </p>
+<p>左クローラの進んだ距離の累積値を取得します. </p><dl class="section return"><dt>戻り値</dt><dd>左エンコーダの値 単位:パルス </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a978cc46d4282e86abc1ee3742d5b4d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getEncoderRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>右エンコーダの値を取得する </p>
+<p>右クローラの進んだ距離の累積値を取得します. </p><dl class="section return"><dt>戻り値</dt><dd>右エンコーダの値 単位:パルス </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22d25aa7c7eef8234f977639315b3e3d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getHeadVelocity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>倒立時のクロール上端の速度を取得する </p>
+<p>倒立時のクロール上端の速度を取得する.取得する速度はグローバル座標のX軸方向 の速度であり,グローバル座標でX軸正方向にクロール上端が移動すると正の速度が 取得され,X軸負方向への移動の場合も同様に負の速度が取得されます. </p><dl class="section return"><dt>戻り値</dt><dd>倒立時のクロール上端の速度 単位:m/s </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0817f4df0bc9b8f55f960341f592c46a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getOdometryLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>左クローラの進んだ距離の値を取得する </p>
+<p>左クローラの進んだ距離の累積値をメートル単位で取得します. </p><dl class="section return"><dt>戻り値</dt><dd>左エンコーダの値 単位:m </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac9bc25abe7102676ad7e8827892c0cb4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getOdometryRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>右クローラの進んだ距離を取得する </p>
+<p>右クローラの進んだ距離の累積値をメートル単位で取得します. </p><dl class="section return"><dt>戻り値</dt><dd>右エンコーダの値 単位:m </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a686b59363b8245eff0933176dfe25646"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaDotX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X軸周りの角速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>X軸周りの角速度 単位:rad/srealtimeLoop() </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afd4e3f8655f27458ffdec6afe2a38305"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaDotY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y軸周りの角速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Y軸周りの角速度 単位:rad/s </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3538f93633b3ff5c99c59c66a3ebde0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaDotZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Z軸周りの角速度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Z軸周りの角速度 単位:rad/s </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a887ece7acd7f011e40e71c9aaca6b1ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X軸周りの姿勢角度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>X軸周りの姿勢角度 単位:rad [-pi/2, +3pi/2] </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09ab9da460f79060ab3d82fdb4f7c0fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y軸周りの姿勢角度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Y軸周りの姿勢角度 単位:rad [?,?] </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a09bc86cd741041291a68c5694fbe043e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CrlRobot::getThetaZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Z軸周りの姿勢角度を取得する </p>
+<dl class="section return"><dt>戻り値</dt><dd>Z軸周りの姿勢角度 単位:rad [?,?] </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7fe815f51d700f97dcc47fb5693579b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>クロールの初期化 </p>
+<p>クロールを使用する前に必ず呼び出してください. 加速度,ジャイロセンサのキャリブレーションを行うので約1.5秒程度の時間を要します. その際,クロールは水平な場所に置き,安静にしてください.</p>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>このメンバ関数を呼ばずに他のメンバ関数を呼び出すと予期せぬエラーが発生します. </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd>キャリブレーション中に水平な場所に置き,安静にしない場合,正しくセンサの値を得られません. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a253edffc77514f7017c760dd6b9c394f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::realtimeLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ループが一定間隔になるよう調節する </p>
+<p>このメンバ関数は,前回このメンバ関数がリターンした時刻からdt秒後にリターンします. このメンバ関数をループの中で呼び出すと,そのループは正確にdt秒起きに実行されます. この特性はPID制御など,正確なリアルタイム性を求められる場合に非常に有効です.</p>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>ループ内の処理がdt秒を超える場合にはこのメンバ関数は正しく動作せず,直ちにリターンします. </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a7a7911c74a440824b7d614a6424a6e9f" title="ループ間隔を設定する ">setDt(float dt)</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1ba6e1c52ef385b5a1215b8ced0c3aa8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::resetEncoderLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>左エンコーダの累積値を0に設定する </p>
+<p>左エンコーダの累積値などのリセットなどに利用ください. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad47312ddc1e644c5b20acd773e68dd81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::resetEncoderRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>右エンコーダの累積値を0に設定する </p>
+<p>右エンコーダの累積値などのリセットなどに利用ください. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7a7911c74a440824b7d614a6424a6e9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::setDt </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ループ間隔を設定する </p>
+<p>このメンバ関数は,<a class="el" href="a00001.html#a253edffc77514f7017c760dd6b9c394f" title="ループが一定間隔になるよう調節する ">realtimeLoop()</a>で実現されるループの時間間隔を指定します. ループ内の演算時間が,設定時間を超えた場合LED2が点灯し, ユーザに対して,設定時間内で演算が終了しなかったことを知らせます. ユーザーがこの関数を使用する場合は,LED2は使用しないでください.</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>ループ間隔 単位:秒 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>このメンバ関数を呼び出さない場合ループ間隔として,初期値として0秒が指定され, <a class="el" href="a00001.html#a253edffc77514f7017c760dd6b9c394f" title="ループが一定間隔になるよう調節する ">realtimeLoop()</a>が呼ばれた場合には,即時リターンされます. </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a253edffc77514f7017c760dd6b9c394f" title="ループが一定間隔になるよう調節する ">realtimeLoop()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae9e092f598fe9043f740b8cd7e435583"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::setKalman </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable_kalman</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>センサヒュージョンの方法を設定する </p>
+<p>このメンバ関数は,センサのヒュージョン方法を設定します. このメンバ関数を呼び出さない場合,相補フィルタによってセンサヒュージョンを行います.</p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable_kalman</td><td>カルマンフィルタを有効にする場合true,相補フィルタを有効にする場合false </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>注意</dt><dd>カルマンフィルタを用いてセンサヒュージョンを行う場合,2 [ms]の計算時間がかかります </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6938183d987090e6d2c30117862402e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::setMotorLeft </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>motor_left</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>左モーターの出力を設定 </p>
+<p>左モーターの出力を-1.0〜0.0〜1.0でリニアに設定します. </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor_left</td><td>左モータの出力 -1.0:最大出力で後退〜0.0:停止〜1.0:最大出力で前進 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7afa8cbc9bfa0494392c9ce1f6c3d1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::setMotorRight </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>motor_right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>右モーターの出力を設定 </p>
+<p>右モーターの出力を-1.0〜0.0〜1.0でリニアに設定します. </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor_right</td><td>右モータの出力 -1.0:最大出力で後退〜0.0:停止〜1.0:最大出力で前進 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a>を呼び出さない限り,情報は更新されません </dd></dl>
+<dl class="section see"><dt>参照</dt><dd><a class="el" href="a00001.html#a61fffbc4290a6a31d9abb40c40980d9f" title="クロールの状態を更新 ">updateState()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a61fffbc4290a6a31d9abb40c40980d9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrlRobot::updateState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>クロールの状態を更新 </p>
+<p>このメンバ関数では,<a class="el" href="a00001.html#a6938183d987090e6d2c30117862402e0" title="左モーターの出力を設定 ">setMotorLeft()</a>,<a class="el" href="a00001.html#ae7afa8cbc9bfa0494392c9ce1f6c3d1a" title="右モーターの出力を設定 ">setMotorRight()</a>などで設定したモータ出力を実際の出力に適用します. また,<a class="el" href="a00001.html#a669ab1a482b88fb7e4cc38853d3ab117" title="左エンコーダの値を取得する ">getEncoderLeft()</a>など各種状態･センサ取得関数で得られる情報の更新も行われます. </p><dl class="section return"><dt>戻り値</dt><dd>なし </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd>このメンバ関数が呼ばれない限り,モータ出力や,センサの値は更新されません. </dd></dl>
+<dl class="section note"><dt>覚え書き</dt><dd>制御ループを実装する場合にはrealtimeLoop()の直下で呼び出すことを推奨します. </dd></dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>src/<a class="el" href="a00005_source.html">crawl.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+2017年01月27日(金) 17時23分27秒作成 - CrawlLibrary / 構成:  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
