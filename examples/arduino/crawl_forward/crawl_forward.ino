@@ -1,7 +1,5 @@
 /*********************************************
-   Crawl Blank Code
-   Arduino記述プログラムのブランクです
-
+   Crawl forward
    クロールを1秒前進させて1秒止めるのを繰り返すプログラムです
 
    Written by RuiTamura
