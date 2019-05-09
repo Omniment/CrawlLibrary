@@ -16,7 +16,7 @@
 // カルマンフィルタ
 #include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
-int atexit(void (* /*func*/)()) { return 0; }
+int atexit(void (*/*func*/)()) { return 0; }
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -31,8 +31,8 @@ void setupUSB() {}
 
 // 数学処理
 #define _USE_MATH_DEFINES
-#include <math.h>
 #include <float.h>
+#include <math.h>
 
 CrlRobot crl;
 KalmanFilter kf;

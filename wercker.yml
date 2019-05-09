@@ -3,27 +3,50 @@ box: omniment/arduino
 build:
   steps:
     - script:
-      name: Check filenames (snake case)
-      code: |
-        find src -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
-        | sort \
-        | xargs omniment-check-path
+        name: Install deps
+        code: apk add bash git clang doxygen
     - script:
-      name: Check code format
-      code: |
-        find . -type f -regextype posix-egrep -regex '.*\.([hc](pp)?|cc|ino)$' \
-        | sort \
-        | xargs omniment-check-format
+        name: Check filenames (snake case)
+        code: |
+          retcode=0
+          for fname in $(find src -type f -regex '.*\.\(h\|hpp\|c\|cc\|cpp\|ino\)$'); do
+            bn=$(echo "$fname" | sed 's#^[0-9a-zA-Z_/,+]*\.[a-z]*$##')
+            if [ "$bn" == '' ]; then
+              echo -e "\033[32m[Passed]\033[0m $fname"
+            else
+              echo -e "\033[31m[Failed]\033[0m $fname"
+              retcode=127
+            fi
+          done
+          if [ $retcode -ne 0 ]; then exit $retcode; fi
     - script:
-      name: Build examples
-      code: |
-        mkdir -p $HOME/Arduino/libraries; \
-        ln -s $(pwd) $HOME/Arduino/libraries/CrawlLibrary; \
-        for ino in $(find examples -type f -name '*.ino'); do \
+        name: Check code format
+        code: |
+          retcode=0
+          for fname in $(find src -type f -regex '.*\.\(h\|hpp\|c\|cc\|cpp\|ino\)$'); do
+            clang-format "$fname" > /tmp/fmt.txt
+            if [ "$(diff "$fname" /tmp/fmt.txt)" == '' ]; then
+              echo -e "\033[32m[Passed]\033[0m $fname"
+            else
+              echo -e "\033[31m[Failed]\033[0m $fname"
+              diff "$fname" /tmp/fmt.txt
+              retcode=127
+            fi
+          done
+          if [ $retcode -ne 0 ]; then exit $retcode; fi
+    - script:
+        name: Build examples
+        code: |
+          mkdir -p $HOME/Arduino/libraries; \
+          ln -s $(pwd) $HOME/Arduino/libraries/CrawlLibrary; \
+          for ino in $(find examples -type f -name '*.ino'); do \
           echo -e "\033[32mCompiling $ino...\033[0m"; \
           arduino-headless -v --verify "$ino" || exit 127; \
-        done
+          done
   after-steps:
+    - script:
+        name: apk add ruby
+        code: apk add ruby ruby-bundler ruby-rdoc
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_URL
         channel: notice
@@ -31,9 +54,12 @@ build:
 deploy:
   steps:
     - script:
-      name: Build documentation
-      code: ./doc/build.wercker.sh $GITHUB_REPO
+        name: Build documentation
+        code: ./doc/build.wercker.sh $GITHUB_REPO
   after-steps:
+    - script:
+        name: apk add ruby
+        code: apk add ruby ruby-bundler ruby-rdoc
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_URL
         channel: notice
