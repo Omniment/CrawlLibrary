@@ -517,8 +517,8 @@ class CrlRobot {
 };
 
 /**
-* CrlRobotのインスタンス
-*/
+　* CrlRobotのインスタンス
+　*/
 extern CrlRobot crl;
 
 #endif
