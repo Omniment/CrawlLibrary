@@ -399,7 +399,11 @@ class CrlRobot {
   /** ループ間隔 単位:マイクロ秒 */
   int dt_us;
   /** Z軸周りの姿勢角度 単位:rad */
-  float theta;
+  float theta_z;
+  /** X軸周りの姿勢角度 単位:rad */
+  float theta_x;
+  /** Y軸周りの姿勢角度 単位:rad */
+  float theta_y;
 
   /** クロール上端のX軸方向速度 単位:m/s */
   float head_velocity;
@@ -512,7 +516,9 @@ class CrlRobot {
   /// @endcond
 };
 
-/** CrlRobotのインスタンス */
+/**
+　* CrlRobotのインスタンス
+　*/
 extern CrlRobot crl;
 
 #endif
