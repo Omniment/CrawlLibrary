@@ -16,7 +16,7 @@
 // カルマンフィルタ
 #include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
-int atexit(void (*/*func*/)()) { return 0; }
+int atexit(void (* /*func*/)()) { return 0; }
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -31,8 +31,8 @@ void setupUSB() {}
 
 // 数学処理
 #define _USE_MATH_DEFINES
-#include <float.h>
 #include <math.h>
+#include <float.h>
 
 CrlRobot crl;
 KalmanFilter kf;
@@ -97,7 +97,9 @@ void CrlRobot::initGyroOffset() {
 void CrlRobot::initTheta() {
   int i;
   calcState();
-  this->theta = M_PI / 2 - atan2(acc_y, acc_x);
+  this->theta_z = M_PI / 2 - atan2(acc_y, acc_x);
+  this->theta_x = M_PI / 2 - atan2(acc_y, acc_z);
+  this->theta_y = M_PI / 2 - atan2(acc_z, acc_x);
   for (i = 0; i < 200; i++) {
     delay(1);
     getAttitude();
@@ -163,8 +165,19 @@ void CrlRobot::calcState() {
 void CrlRobot::calcTheta() {
   float theta1;
   theta1 = M_PI / 2 - atan2(acc_y, acc_x);
-  this->theta = this->theta * this->rate_theta + theta1 * (1.0 - this->rate_theta);
-  this->theta = this->theta + this->theta_dot_z * this->dt;
+  this->theta_z = this->theta_z * this->rate_theta + theta1 * (1.0 - this->rate_theta);
+  this->theta_z = this->theta_z + this->theta_dot_z * this->dt;
+
+  float theta2;
+  theta2 = M_PI / 2 - atan2(acc_y, acc_z);
+  this->theta_x = this->theta_x * this->rate_theta + theta2 * (1.0 - this->rate_theta);
+  this->theta_x = this->theta_x + this->theta_dot_x * this->dt;
+
+  float theta3;
+  theta3 = M_PI / 2 - atan2(acc_z, acc_x);
+  this->theta_y = this->theta_y * this->rate_theta + theta3 * (1.0 - this->rate_theta);
+  this->theta_y = this->theta_y + this->theta_dot_y * this->dt;
+  
 }
 
 void CrlRobot::calcThetaKalmanFilter() {
@@ -172,12 +185,12 @@ void CrlRobot::calcThetaKalmanFilter() {
   theta = M_PI / 2 - atan2(acc_y, acc_x);
   gyro = this->theta_dot_z;
   kf.update(theta, gyro, offset_gz * 0.00013316);
-  this->theta = kf.getTheta();
+  this->theta_z = kf.getTheta();
 }
 
 void CrlRobot::calcHeadVelocity() {
   ld_odometry.calculate((this->encoder_right + this->encoder_left) * this->kEtoMM / 2.0);
-  this->head_velocity = CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta - M_PI / 2.0) - ld_odometry.getOutput();
+  this->head_velocity = CRAWL_LENGTH * this->getThetaDotZ() * cos(this->theta_z - M_PI / 2.0) - ld_odometry.getOutput();
 }
 
 // 各種アクセサ
@@ -199,11 +212,11 @@ void CrlRobot::resetEncoderLeft() { this->encoder_left = 0; }
 
 void CrlRobot::resetEncoderRight() { this->encoder_right = 0; }
 
-float CrlRobot::getThetaX() { return this->theta; }
+float CrlRobot::getThetaX() { return this->theta_x; }
 
-float CrlRobot::getThetaY() { return this->theta; }
+float CrlRobot::getThetaY() { return this->theta_y; }
 
-float CrlRobot::getThetaZ() { return this->theta; }
+float CrlRobot::getThetaZ() { return this->theta_z; }
 
 float CrlRobot::getHeadVelocity() { return this->head_velocity; }
 
