@@ -516,7 +516,9 @@ class CrlRobot {
   /// @endcond
 };
 
-/** CrlRobotのインスタンス */
+/**
+* CrlRobotのインスタンス
+*/
 extern CrlRobot crl;
 
 #endif
