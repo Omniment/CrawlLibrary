@@ -20,9 +20,9 @@ getThetaDotX	KEYWORD2
 getThetaDotY	KEYWORD2
 getThetaDotZ	KEYWORD2
 getEncoderLeft	KEYWORD2
-getEncoderRight KEYWORD2
-getOdometryLeft KEYWORD2
-getOdometryRight KEYWORD2
+getEncoderRight	KEYWORD2
+getOdometryLeft	KEYWORD2
+getOdometryRight	KEYWORD2
 resetEncoderLeft	KEYWORD2
 resetEncoderRight	KEYWORD2
 setMotorLeft	KEYWORD2
