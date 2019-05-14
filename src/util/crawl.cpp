@@ -16,7 +16,7 @@
 // カルマンフィルタ
 #include "kalmanfilter.h"
 // Declared weak in Arduino.h to allow user redefinitions.
-int atexit(void (* /*func*/)()) { return 0; }
+int atexit(void (*/*func*/)()) { return 0; }
 
 // Weak empty variant initialization function.
 // May be redefined by variant files.
@@ -31,8 +31,8 @@ void setupUSB() {}
 
 // 数学処理
 #define _USE_MATH_DEFINES
-#include <math.h>
 #include <float.h>
+#include <math.h>
 
 CrlRobot crl;
 KalmanFilter kf;
@@ -177,7 +177,6 @@ void CrlRobot::calcTheta() {
   theta3 = M_PI / 2 - atan2(acc_z, acc_x);
   this->theta_y = this->theta_y * this->rate_theta + theta3 * (1.0 - this->rate_theta);
   this->theta_y = this->theta_y + this->theta_dot_y * this->dt;
-  
 }
 
 void CrlRobot::calcThetaKalmanFilter() {
