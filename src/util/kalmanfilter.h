@@ -21,7 +21,7 @@ class KalmanFilter {
    * @param A 入力行列
    * @param B 入力行列
    * @param m 入力行列の列数
-  * @param n 入力行列の行数
+   * @param n 入力行列の行数
    * @param C 出力行列 (A - B)
    * @return なし
    */
